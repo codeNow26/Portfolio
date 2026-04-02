@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    height: 100dvh;
+    background: linear-gradient(1deg, #1C1C1C, #08463B);
+}
+
+.legal-notice {
+    flex: 1;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    color: #3DCFB6;
+    font-size: 16px;
+    margin: 149px 216px;
+}
+
+.titles {
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.legal-notice-title {
+    text-align: center;
+  font-family: "Fira Code", monospace;
+  font-weight: 700;
+  font-size: 64px;
+  margin-bottom: 64px;
+}

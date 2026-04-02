@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <header class="navbar">
+        <div class="navbar-container">
+
+            <div class="nav-left">
+
+                <div class="language-switch">
+                    <a id="english" href="#">EN</a>
+                    <a id="german" href="#">DE</a>
+                </div>
+
+                <nav class="nav-links">
+                    <a class="nav-text" data-i18n="nav.about" href="#about">About me</a>
+                    <a class="nav-text" data-i18n="nav.skills" href="#">Skills</a>
+                    <a class="nav-text" data-i18n="nav.projects" href="#portfolio">Projects</a>
+                </nav>
+
+            </div>
+
+            <div class="logo">
+                <img class="logo-img" src="./img/Logo/Scjmaps.png">
+                <span class="name">Philipp<br> Nowotnick</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero snap-section">
+            <div class="hero-container">
+                <div class="scroll-indicator">
+                    <a href="#about">
+                        <img class="scroll-indicator-arrow" src="./img/icons/Vector 8.png">
+                        <div class="scroll-indicator-vector"></div>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a class="hero-email">philippnowotnick@hotmail.de</a>
+                    <div class="social-block">
+                        <div class="hero-social-icons">
+                            <img class="github-logo" src="./img/icons/Github.png">
+                            <img class="github-logo github-hover-icon" src="./img/icons/Property 1=GitHub Hover.png">
+
+                            <img class="linkedIn-logo" src="./img/icons/Linkedin.png">
+                            <img class="linkedIn-logo linkedIn-hover-icon"
+                                src="./img/icons/Property 1=Linkedin Hovevr.png">
+                        </div>
+                        <div class="social-indicator-vector"></div>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <p data-i18n="hero.role">Frontend Developer</p>
+                    <h1>Philipp Nowotnick</h1>
+
+                    <div class="hero-buttons">
+                        <a href="#portfolio">
+                            <div class="btn-wrapper">
+                                <span data-i18n="hero.work" class="text">Check my work</span>
+                                <span data-i18n="hero.work" class="text">Check my work</span>
+                            </div>
+                        </a>
+
+                        <a href="#contact">
+                            <div class="btn-wrapper">
+                                <span data-i18n="hero.contact" class="text">Contact me</span>
+                                <span data-i18n="hero.contact" class="text">Contact me</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticker">
+                <div class="ticker-track">
+                    <span data-i18n="hero.ticker_remote">Available for remote work</span>
+                    <span>•</span>
+                    <span data-i18n="hero.ticker_frontend">Frontend Developer</span>
+                    <span>•</span>
+                    <span data-i18n="hero.ticker_town">Based in Hoyerswerda</span>
+                    <span>•</span>
+                    <span data-i18n="hero.ticker_work">Open to work</span>
+                    <span>•</span>
+
+                    <span data-i18n="hero.ticker_remote">Available for remote work</span>
+                    <span>•</span>
+                    <span data-i18n="hero.ticker_frontend">Frontend Developer</span>
+                    <span>•</span>
+                    <span data-i18n="hero.ticker_town">Based in Hoyerswerda</span>
+                    <span>•</span>
+                    <span data-i18n="hero.ticker_work">Open to work</span>
+                    <span>•</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-me snap-section">
+            <div id="about" class="about-container">
+                <div class="about-left">
+                    <div class="profile-image-wrapper">
+                        <img class="profile-photo-background" src="./img/backgroundlines profilephoto.png">
+                        <img class="profile-photo" src="./img/profilephoto/Okay 1.jpg">
+                    </div>
+                </div>
+
+                <div class="about-right">
+
+                    <p data-i18n="about.header" class="textbox-header-text">Who I Am</p>
+                    <div class="textbox-text-container">
+                        <h2 data-i18n="about.title" class="textbox-title">About me</h1>
+                            <p data-i18n="about.description" class="textbox-text">
+                                Hey there, I'm Philipp! I got into coding because I wanted to build things myself
+                                instead
+                                of just consuming them. I enjoy turning ideas into clean, functional interfaces and
+                                solving problems step by step
+                                until everything just clicks.
+                            </p>
+                            <div class="about-item">
+                                <img class="about-icon" src="./img/icons/Property 1=location_on.png">
+                                <p data-i18n="about.remote">I’m open to remote, hybrid, or on-site work - whatever fits
+                                    best for the project and
+                                    the team.</p>
+                            </div>
+                            <div class="about-item">
+                                <img class="about-icon" src="./img/icons/Property 1=Quality.png">
+                                <p data-i18n="about.skills">I enjoy learning new technologies and constantly improving
+                                    my skills. I’m always open
+                                    to new ideas, tools, and better ways of doing things.</p>
+                            </div>
+                            <div class="about-item">
+                                <img class="about-icon" src="./img/icons/Property 1=cognition.png">
+                                <p data-i18n="about.solutions">I like to break problems down and find simple, efficient
+                                    solutions. I stay
+                                    persistent, think creatively, and focus on building clean and maintainable code.</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="technologies snap-section">
+
+            <div class="technologies-container">
+                <div class="technologies-left">
+
+                    <p data-i18n="technologies.header" class="textbox-header-text">Technologies</p>
+                    <div class="textbox-text-container">
+                        <h2 data-i18n="technologies.skillset" class="textbox-title">Skill set</h2>
+                        <p data-i18n="technologies.description" class="textbox-text">
+                            I build things that actually work.
+                            Clean, structured, without unnecessary complexity.
+
+                            I started coding to create instead of just consume.
+                            Now I turn ideas into real projects — from web apps to small games.
+                        </p>
+                        <p data-i18n="technologies.skill_text" class="skill-text">You need <span
+                                class="skill-span">another skill?</span></p>
+                        <p data-i18n="technologies.contact" class="textbox-text">Feel free to contact me. I look forward
+                            to <br> expanding on my previous
+                            knowledge</p>
+                        <div class="hero-buttons technologie-button">
+                            <a href="#contact">
+                                <div class="btn-wrapper">
+                                    <span data-i18n="technologies.button" class="text">Let's Talk</span>
+                                    <span data-i18n="technologies.button" class="text">Let's Talk</span>
+                                </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="technologies-right">
+                    <div class="skillset-icons">
+                        <img class="skillset-icon" src="./img/icons/HTML(1).png">
+                        <img class="skillset-icon" src="./img/icons/17. Skill animation.png">
+                        <img class="skillset-icon" src="./img/icons/JavaScript.png">
+                        <img class="skillset-icon" src="./img/icons/Material Design.png">
+                        <img class="skillset-icon" src="./img/icons/TypeScript.png">
+                        <img class="skillset-icon" src="./img/icons/TypeScript.png">
+                        <img class="skillset-icon" src="./img/icons/Firebase.png">
+                        <img class="skillset-icon" src="./img/icons/GIT.png">
+                        <img class="skillset-icon" src="./img/icons/Rest-Api.png">
+                        <img class="skillset-icon" src="./img/icons/Scrum.png">
+                        <div class="popup-container">
+                            <img class="skillset-icon" src="./img/icons/18. Growth Mindset interaction.png">
+                            <div class="mindset-popup">
+                                <p>I have a special interest in learning</p>
+                                <img src="./img/icons/Frame 300.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="portfolio" class="snap-section portfolio">
+            <div class="portfolio-container">
+                <p class="textbox-header-text">Portfolio</p>
+                <h2 class="textbox-title project-title">Featured Projects</h2>
+                <p class="portfolio-text">Explore a selection of my work here - interact with <br>projects to see my
+                    skills in action</p>
+
+                <div class="overlay-backdrop">
+                    <div id="portfolio-overlay" class="portfolio-overlay">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-container">
+                                <div onclick="closeProjectsOverlay()" class="close-icon"></div>
+                                <div class="portfolio-overlay-left">
+                                    <h1>01</h1>
+                                    <h2>Join</h2>
+                                    <h3>What is this project about?</h3>
+                                    <p>Task manager inspired by the Kanban System. Create and organize tasks using drag
+                                        and
+                                        drop
+                                        functions, assign users and categories</p>
+                                    <div class="tech-icons">
+                                        <img class="tech-icon" src="./img/icons/CSS.png">
+                                        <img class="tech-icon" src="./img/icons/htmloverlay.png">
+                                        <img class="tech-icon" src="./img/icons/firebaseoverlay.png">
+                                        <img class="tech-icon" src="./img/icons/angularoverlay.png">
+                                        <img class="tech-icon" src="./img/icons/typescriptoverlay.png">
+                                    </div>
+
+                                    <div class="project-link-container">
+                                        <a target="_blank" rel="noopener noreferrer"  class="project-link" href="https://github.com/codeNow26/Join---Portfolio">
+                                            GitHub
+                                            <img src="./img/icons/arrow_outward.png">
+                                        </a>
+
+                                        <a class="project-link" href="">
+                                            Live Test
+                                            <img src="./img/icons/arrow_outward.png">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-overlay-right">
+                                    <img class="Join-screenshot" src="./img/icons/Join Screenshot.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-list">
+                    <div onclick="openProjectsOverlay()" class="project">
+                        <span class="project-name">Join</span>
+                        <span class="tech">
+                            <span>Angular</span>
+                            <span>TypeScript</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Firebase</span>
+                        </span>
+                    </div>
+                    <div class="project">
+                        <span class="project-name">El Pollo Loco</span>
+                        <span class="tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </span>
+                    </div>
+
+                    <div class="project">
+                        <span class="project-name">DA Bubble</span>
+                        <span class="tech">
+                            <span>Angular</span>
+                            <span>Firebase</span>
+                            <span>TypeScript</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="snap-section colleagues">
+            <div class="colleagues-content">
+                <h2 class="feedback-title">What my colleagues say about me</h2>
+                <div class="feedback-container">
+                    <div class="feedback-card">
+                        <img class="quote-icon" src="./img/icons/quotes.png">
+                        <p class="feedback-card-text">Irrelevantes Textbox gelaber von irgendeinem Typen der mir
+                            feedback geben soll obwohl ich niemanden habe.
+                        <div class="feedback-footer">
+                            <div class="feedback-line"></div>
+                            <span class="feedback-author">Hans Peter – Team Partner</span>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-menu">
+                    <img class="slide-arrow" src="./img/icons/arrow-left.png">
+                    <div class="slide-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <img class="slide-arrow" src="./img/icons/arrow-right.png">
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="snap-section contact">
+            <div class="contact-container">
+                <div class="contact-left">
+                    <p>Contact me</p>
+                    <h2 class="contact-title">Let's work<br>together</h2>
+                    <h3>Got a problem to solve?</h3>
+                    <p class="contact-description">I’m always open to new opportunities and collaborations, so feel free
+                        to reach out. I’m
+                        particularly interested in roles where I can combine clean, structured code with thoughtful
+                        design to create real value for users.
+                        <br><br>
+                        Need a Frontend developer?<span class="contact-description-span"> Let's talk!</span>
+                    </p>
+                </div>
+                <div class="contact-right">
+                    <div class="contact-field">
+                        <h3>What's your name?</h3>
+                        <p>Your name goes here</p>
+                    </div>
+
+                    <div class="contact-field">
+                        <h3>What's your email?</h3>
+                        <p>youremail@email.com</p>
+                    </div>
+
+                    <div class="contact-field help-field">
+                        <h3>How can I help you?</h3>
+                        <p>Hello Lukas, I am interested in...</p>
+                    </div>
+                    <div class="contact-checkbox">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="contact-checkbox-text">I've read the <span>privacy policy</span> and agree to the
+                            processing of my data as outlined</span>
+                    </div>
+                    <div class="hero-buttons technologie-button contact-button">
+                        <a href="#">
+                            <div class="btn-wrapper">
+                                <span class="text">Say Hello ;)</span>
+                                <span class="text">Say Hello ;)</span>
+                            </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="footer">
+                    <div class="footer-container">
+
+                        <div class="footer-left">
+                            <div class="logo">
+                                <img src="./img/Logo/Capa_1.png">
+                                <span class="name">Philipp<br> Nowotnick</span>
+                            </div>
+                            <p>Web developer</p>
+                            <p>Hoyerswerda Germany</p>
+                        </div>
+
+                        <div class="footer-middle">
+                            <p>© Philipp Nowotnick 2026</p>
+                        </div>
+
+                        <div class="footer-right">
+                            <p>Github</p>
+                            <p>LinkedIn</p>
+                            <p>Email</p>
+                            <p>Legal Notice</p>
+                        </div>
+
+                    </div>
+                </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
