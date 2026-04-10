@@ -1,4 +1,5 @@
 const glow = document.querySelector('.cursor-glow');
+let currentLanguage = localStorage.getItem("lang") || "en";
 
 window.addEventListener('mousemove', (e) => {
     glow.style.left = e.clientX + 'px';
@@ -59,7 +60,40 @@ const translations = {
             skill_text: "You need <span class=\"skill-span\">another skill?</span>",
             contact: "Feel free to contact me. I look forward to <br> expanding on my previous knowledge",
             button: "Let's Talk",
+        },
+        portfolio: {
+            title: "Featured Projects",
+            description: "Explore a selection of my work here - interact with <br>projects to see my skills in action",
+            about: "what is this project about?",
+            projects: {
+                join: {
+                    description: "Task manager inspired by the Kanban system. Create and organize tasks using drag and drop functions, assign users and categories",
+                    number: "01"
+                },
+                el_pollo_loco: {
+                    description: "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight agains the crazy hen",
+                    number: "02"
+                }
+            }
+        },
+        feedback: {
+            title: "What my colleagues say about me",
+        },
+        contact: {
+            contact_me: "Contact me",
+            title: "Let's work<br>together",
+            problem: "Got a problem to solve?",
+            description: "I’m always open to new opportunities and collaborations, so feel free to reach out. I’m particularly interested in roles where I can combine clean, structured code with thoughtful design to create real value for users.<br><br>Need a Frontend developer? <span class=\"contact-description-span\">Let's talk!</span>",
+            name: "What's your name?",
+            name_placeholder: "your name goes here",
+            email: "What's your email?",
+            email_placeholder: "youremail@email.com",
+            help: "How can I help you?",
+            help_placeholder: "Hello Lukas, i am interested in...",
+            privacy_policy: "I've read the <span>privacy policy</span> and agree to the processing of my data as outlined",
+            button: "Say Hello ;)",
         }
+
     },
     de: {
         nav: {
@@ -91,6 +125,38 @@ const translations = {
             skill_text: "Du suchst <span class=\"skill-span\">eine bestimmte Fähigkeit?</span>",
             contact: "Zögere nicht, mich zu kontaktieren. Ich freue mich darauf, mein bisheriges Wissen zu erweitern",
             button: "Lass uns reden",
+        },
+        portfolio: {
+            title: "Ausgewählte Projekte",
+            description: "Entdecke eine Auswahl meiner Arbeiten hier - interagiere mit <br>Projekten, um meine Fähigkeiten in Aktion zu sehen",
+            projects: {
+                about: "Worum geht es bei diesem Projekt?",
+                join: {
+                    description: "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu",
+                    number: "01"
+                },
+                el_pollo_loco: {
+                    description: "Sprung-, Lauf- und Wurfspiel basierend auf einem objektorientierten Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen",
+                    number: "02"
+                }
+            }
+        },
+        feedback: {
+            title: "Was meine Kollegen über mich sagen",
+        },
+        contact: {
+            contact_me: "Kontaktiere mich",
+            title: "Lass uns<br>zusammen arbeiten",
+            problem: "Gibt es ein Problem zu lösen?",
+            description: "Ich bin immer offen für neue Möglichkeiten und Kooperationen, also zögere nicht, dich zu melden. Ich bin besonders an Rollen interessiert, in denen ich sauberen, strukturierten Code mit durchdachtem Design kombinieren kann, um echten Mehrwert für Benutzer zu schaffen.<br><br>Du brauchst einen Frontend-Entwickler? <span class=\"contact-description-span\">Lass uns reden!</span>",
+            name: "Wie ist dein Name?",
+            name_placeholder: "Dein Name hier",
+            email: "Wie ist deine E-Mail?",
+            email_placeholder: "youremail@email.com",
+            help: "Wie kann ich dir helfen?",
+            help_placeholder: "Hallo Lukas, ich interessiere mich für...",
+            privacy_policy: "Ich habe die <span>Datenschutzrichtlinie</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu",
+            button: "Sag Hallo ;)",
         }
     },
 }
@@ -99,12 +165,13 @@ function getTranslation(lang, key) {
     return key.split('.').reduce((obj, i) => obj[i], translations[lang]);
 }
 
-function setLanguage(lang, key) {
+function setLanguage(lang) {
     document.querySelectorAll("[data-i18n]").forEach(el => {
         el.innerHTML = getTranslation(lang, el.dataset.i18n);
     });
 
     localStorage.setItem("lang", lang);
+    currentLanguage = lang;
     switchLanguageButton(lang);
 }
 
@@ -122,12 +189,73 @@ function switchLanguageButton(lang) {
     document.getElementById("german").classList.toggle("active-lang", lang === "de");
 }
 
-function openProjectsOverlay() {
-    const overlay = document.getElementById("portfolio-overlay");
-    overlay.classList.add("show");
+const projects = {
+    join: {
+        image: "./img/icons/Join Screenshot.png",
+        github: "https://github.com/codeNow26/Join---Portfolio",
+        live: "https://codenow26.github.io/Join---Portfolio/",
+        tech: ["angularoverlay.png", "typescriptoverlay.png", "htmloverlay.png", "CSS.png", "firebaseoverlay.png"],
+    },
+    el_pollo_loco: {
+        image: "./img/El Pollo Loco Screenshot 2.png",
+        github: "https://github.com/codeNow26/El-Pollo-Loco",
+        live: "https://codenow26.github.io/El-Pollo-Loco/",
+        tech: ["htmloverlay.png", "CSS.png", "javascriptoverlay.png"],
+    },
+    bubble: {
+        image: "./img/bubble.png"
+    }
+};
 
+function openProjectsOverlay(project) {
+    const overlay = document.getElementById("portfolio-overlay");
     const backdrop = document.querySelector(".overlay-backdrop");
+
+    overlay.classList.add("show");
     backdrop.classList.add("activeshow");
+
+    const lang = currentLanguage || "en";
+    const projectData = translations[lang].portfolio.projects[project];
+    const projectInfo = projects[project];
+
+    if (!projectData || !projectInfo) return;
+
+
+    document.querySelector("#overlay-title").textContent =
+        projectData.title || formatProjectName(project);
+
+    document.querySelector("#overlay-about").textContent =
+        projectData.about;
+
+    document.querySelector("#overlay-number").textContent =
+        projectData.number;
+
+    document.querySelector("#overlay-description").textContent =
+        projectData.description;
+
+    document.querySelector("#overlay-screenshot").src =
+        projectInfo.image;
+
+    document.querySelector("#overlay-github").href =
+        projectInfo.github;
+
+    document.querySelector("#overlay-live").href =
+        projectInfo.live;
+
+    const techContainer = document.querySelector("#overlay-tech");
+    techContainer.innerHTML = "";
+
+    projectInfo.tech.forEach(icon => {
+        techContainer.innerHTML += `
+            <img class="tech-icon" src="./img/icons/${icon}">
+        `;
+    });
+}
+
+function formatProjectName(name) {
+    return name
+        .replaceAll("_", " ")
+        .replace(/\b\w/g, char => char.toUpperCase());
 }
 
 function closeProjectsOverlay() {
@@ -136,4 +264,57 @@ function closeProjectsOverlay() {
 
     const backdrop = document.querySelector(".overlay-backdrop");
     backdrop.classList.remove("activeshow");
+}
+
+
+const splide = new Splide('.splide', {
+    type: 'loop',
+    arrows: false,
+    pagination: false,
+    focus: 'center',
+    fixedWidth: '900px',
+    start: 1,
+    trimSpace: false,
+});
+
+splide.mount();
+
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+nextBtn.addEventListener('click', () => {
+    splide.go('>');
+});
+
+prevBtn.addEventListener('click', () => {
+    splide.go('<');
+});
+
+const nameInput = document.getElementById("name_sign_up");
+let touched = false;
+
+nameInput.addEventListener("focus", () => {
+    touched = true;
+});
+
+nameInput.addEventListener("blur", () => {
+    if (touched) {
+        validateName(nameInput.value.trim());
+    }
+});
+
+function validateName(value) {
+    const nameInput = document.getElementById("name_sign_up");
+    const error = document.getElementById("required-sign_up-name");
+
+
+    if (!value.trim()) {
+        nameInput.classList.add("submit");
+        error.classList.add("opacity-1");
+        return false;
+    } else {
+        nameInput.classList.remove("submit");
+        error.classList.remove("opacity-1");
+        return true;
+    }
 }

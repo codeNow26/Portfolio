@@ -330,6 +330,7 @@ h1 {
 
 .scroll-indicator a {
     height: 40vh;
+    width: 100%;
 }
 
 .scroll-indicator:hover {
@@ -719,6 +720,10 @@ h1 {
     display: flex;
 }
 
+.opacity-1 {
+    opacity: 1 !important;
+}
+
 .overlay-backdrop {
     position: fixed;
     inset: 0;
@@ -805,10 +810,9 @@ h1 {
 
 .tech-icons {
     display: flex;
-    gap: 4px;
+    gap: 10px;
     padding-top: 32px;
 }
-
 
 .Join-screenshot {
     width: 100%;
@@ -817,6 +821,58 @@ h1 {
     min-width: 570px;
     min-height: 360px;
     max-width: 600px;
+}
+
+.join-hover-img {
+    width: 400px;
+    height: 220px;
+    position: absolute;
+    top: 40%;
+    right: 20%;
+    border-radius: 12px;
+}
+
+.hover-images {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+#join:hover .hover-images {
+    opacity: 1;
+}
+
+.background-join {
+    width: 401px;
+    height: 230px;
+    position: absolute;
+    top: 42%;
+    right: 19%;
+    border-radius: 12px;
+}
+
+.background-el_pollo {
+    width: 401px;
+    height: 230px;
+    position: absolute;
+    top: 50%;
+    right: 19%;
+    border-radius: 12px;
+}
+
+.el-pollo-hover-img {
+    width: 400px;
+    height: 220px;
+    position: absolute;
+    top: 48%;
+    right: 20%;
+    border-radius: 12px;
+}
+
+#el_pollo_loco:hover .hover-images {
+    opacity: 1;
 }
 
 .project {
@@ -833,7 +889,7 @@ h1 {
     padding: 40px 0px 40px 32px;
     font-size: 24px;
     font-weight: 700;
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
@@ -886,17 +942,62 @@ h1 {
     gap: 48px;
 }
 
-.feedback-container {
-    max-width: 1440px;
+.feedback-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.splide {
+    width: 100%;
+}
+
+.splide__track {
+    overflow: visible !important;
+}
+
+.splide__slide {
     height: 274px;
+    opacity: 0.4;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.splide__slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.splide__pagination {
+    display: none;
+}
+
+.feedback-wrapper::before,
+.feedback-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10vw;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.feedback-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #0f0f0f, transparent);
+}
+
+.feedback-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #0f0f0f, transparent);
 }
 
 .feedback-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    max-width: 700px;
+    min-height: 274px;
+    width: 100%;
     border: 1px solid rgba(61, 207, 182, 1);
     border-radius: 30px;
     background: rgba(61, 207, 182, 0.3);
@@ -905,6 +1006,7 @@ h1 {
     line-height: 1.4;
     font-family: "Karla", sans-serif;
     font-weight: 400;
+    transition: all 0.3s ease;
 }
 
 .feedback-title {
@@ -924,6 +1026,8 @@ h1 {
 }
 
 .feedback-footer {
+    height: 100px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -936,6 +1040,10 @@ h1 {
     background: white;
     height: 1px;
     width: 360px;
+}
+
+.splide__list {
+    display: flex;
 }
 
 .slide-menu {
@@ -1039,9 +1147,19 @@ h1 {
 }
 
 .contact-field {
+    display: block;
+    position: relative;
     border-top: 1px solid #3DCFB6;
     cursor: pointer;
+    transition: all 0.4s ease;
+}
 
+.contact-field:hover {
+    background: rgba(61, 207, 182, 0.2);
+}
+
+.contact-field:hover .contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .help-field {
@@ -1111,6 +1229,26 @@ h1 {
     line-height: 1.2;
 }
 
+.contact-input {
+    width: 100%;
+    background: transparent;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    border: 0px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+    cursor: pointer;
+}
+
+.contact-input:focus {
+    outline: none;
+}
+
+.contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 
 .footer {
     height: 126px;
@@ -1154,4 +1292,12 @@ h1 {
 
 .footer-right p {
     padding-bottom: 8px;
+}
+
+.error-message {
+    font-size: 18px;
+    color: rgba(236, 123, 123, 0.8) !important;
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
 }

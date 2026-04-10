@@ -14,6 +14,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
 </head>
 
 <body>
@@ -55,8 +57,12 @@
                     <a class="hero-email">philippnowotnick@hotmail.de</a>
                     <div class="social-block">
                         <div class="hero-social-icons">
-                            <img class="github-logo" src="./img/icons/Github.png">
-                            <img class="github-logo github-hover-icon" src="./img/icons/Property 1=GitHub Hover.png">
+                            <a target="_blank" href="https://github.com/codeNow26">
+                                <img class="github-logo" src="./img/icons/Github.png">
+
+                                <img class="github-logo github-hover-icon"
+                                    src="./img/icons/Property 1=GitHub Hover.png">
+                            </a>
 
                             <img class="linkedIn-logo" src="./img/icons/Linkedin.png">
                             <img class="linkedIn-logo linkedIn-hover-icon"
@@ -210,8 +216,9 @@
         <section id="portfolio" class="snap-section portfolio">
             <div class="portfolio-container">
                 <p class="textbox-header-text">Portfolio</p>
-                <h2 class="textbox-title project-title">Featured Projects</h2>
-                <p class="portfolio-text">Explore a selection of my work here - interact with <br>projects to see my
+                <h2 data-i18n="portfolio.title" class="textbox-title project-title">Featured Projects</h2>
+                <p data-i18n="portfolio.description" class="portfolio-text">Explore a selection of my work here -
+                    interact with <br>projects to see my
                     skills in action</p>
 
                 <div class="overlay-backdrop">
@@ -220,14 +227,15 @@
                             <div class="portfolio-overlay-container">
                                 <div onclick="closeProjectsOverlay()" class="close-icon"></div>
                                 <div class="portfolio-overlay-left">
-                                    <h1>01</h1>
-                                    <h2>Join</h2>
-                                    <h3>What is this project about?</h3>
-                                    <p>Task manager inspired by the Kanban System. Create and organize tasks using drag
+                                    <h1 id="overlay-number">01</h1>
+                                    <h2 id="overlay-title">Join</h2>
+                                    <h3 id="overlay-about" >What is this project about?</h3>
+                                    <p id="overlay-description">Task manager inspired by the Kanban
+                                        System. Create and organize tasks using drag
                                         and
                                         drop
                                         functions, assign users and categories</p>
-                                    <div class="tech-icons">
+                                    <div class="tech-icons" id="overlay-tech">
                                         <img class="tech-icon" src="./img/icons/CSS.png">
                                         <img class="tech-icon" src="./img/icons/htmloverlay.png">
                                         <img class="tech-icon" src="./img/icons/firebaseoverlay.png">
@@ -236,26 +244,30 @@
                                     </div>
 
                                     <div class="project-link-container">
-                                        <a target="_blank" rel="noopener noreferrer"  class="project-link" href="https://github.com/codeNow26/Join---Portfolio">
+                                        <a target="_blank" rel="noopener noreferrer" id="overlay-github" class="project-link"
+                                            href="https://github.com/codeNow26/Join---Portfolio">
                                             GitHub
                                             <img src="./img/icons/arrow_outward.png">
                                         </a>
 
-                                        <a class="project-link" href="">
+                                        <a id="overlay-live" target="_blank" class="project-link"
+                                            href="https://codenow26.github.io/Join---Portfolio/">
                                             Live Test
                                             <img src="./img/icons/arrow_outward.png">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="portfolio-overlay-right">
-                                    <img class="Join-screenshot" src="./img/icons/Join Screenshot.png">
+                                    <img id="overlay-screenshot" class="Join-screenshot" src="./img/icons/Join Screenshot.png">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
                 <div class="project-list">
-                    <div onclick="openProjectsOverlay()" class="project">
+                    <div id="join" onclick="openProjectsOverlay('join')" class="project">
                         <span class="project-name">Join</span>
                         <span class="tech">
                             <span>Angular</span>
@@ -264,17 +276,25 @@
                             <span>CSS</span>
                             <span>Firebase</span>
                         </span>
+                        <div class="hover-images">
+                            <img class="background-join" src="./img/Capa_1(1).png">
+                            <img class="join-hover-img" src="./img/icons/Join Screenshot.png">
+                        </div>
                     </div>
-                    <div class="project">
+                    <div id="el_pollo_loco" onclick="openProjectsOverlay('el_pollo_loco')" class="project">
                         <span class="project-name">El Pollo Loco</span>
                         <span class="tech">
                             <span>HTML</span>
                             <span>CSS</span>
                             <span>JavaScript</span>
                         </span>
+                        <div class="hover-images">
+                            <img class="background-el_pollo" src="./img/Capa_1(1).png">
+                            <img class="el-pollo-hover-img" src="./img/El Pollo Loco Screenshot.png">
+                        </div>
                     </div>
 
-                    <div class="project">
+                    <div id="da_bubble" class="project">
                         <span class="project-name">DA Bubble</span>
                         <span class="tech">
                             <span>Angular</span>
@@ -288,74 +308,109 @@
 
         <section class="snap-section colleagues">
             <div class="colleagues-content">
-                <h2 class="feedback-title">What my colleagues say about me</h2>
-                <div class="feedback-container">
-                    <div class="feedback-card">
-                        <img class="quote-icon" src="./img/icons/quotes.png">
-                        <p class="feedback-card-text">Irrelevantes Textbox gelaber von irgendeinem Typen der mir
-                            feedback geben soll obwohl ich niemanden habe.
-                        <div class="feedback-footer">
-                            <div class="feedback-line"></div>
-                            <span class="feedback-author">Hans Peter – Team Partner</span>
-                        </div>
-                        </p>
+                <h2 data-i18n="feedback.title" class="feedback-title">What my colleagues say about me</h2>
+
+                <div class="splide feedback-wrapper">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+
+                            <li class="splide__slide">
+                                <div class="feedback-card">
+                                    <img class="quote-icon" src="./img/icons/quotes.png">
+                                    <p class="feedback-card-text">
+                                        Zitat 1
+                                    </p>
+                                    <div class="feedback-footer">
+                                        <div class="feedback-line"></div>
+                                        <span class="feedback-author">Frau Jado – Team Partner</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide">
+                                <div class="feedback-card">
+                                    <img class="quote-icon" src="./img/icons/quotes.png">
+                                    <p class="feedback-card-text">
+                                        Zitat 2
+                                    </p>
+                                    <div class="feedback-footer">
+                                        <div class="feedback-line"></div>
+                                        <span class="feedback-author">Hans Peter – Team Partner</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide">
+                                <div class="feedback-card">
+                                    <img class="quote-icon" src="./img/icons/quotes.png">
+                                    <p class="feedback-card-text">
+                                        Zitat 3
+                                    </p>
+                                    <div class="feedback-footer">
+                                        <div class="feedback-line"></div>
+                                        <span class="feedback-author">Einhorn – Team Partner</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
                     </div>
-                </div>
-                <div class="slide-menu">
-                    <img class="slide-arrow" src="./img/icons/arrow-left.png">
-                    <div class="slide-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                    <img class="slide-arrow" src="./img/icons/arrow-right.png">
                 </div>
 
-            </div>
+                <div class="slide-menu">
+                    <img class="slide-arrow prev" src="./img/icons/arrow-left.png">
+                    <div class="slide-dots"></div>
+                    <img class="slide-arrow next" src="./img/icons/arrow-right.png">
+                </div>
+
         </section>
 
         <section id="contact" class="snap-section contact">
             <div class="contact-container">
                 <div class="contact-left">
-                    <p>Contact me</p>
-                    <h2 class="contact-title">Let's work<br>together</h2>
-                    <h3>Got a problem to solve?</h3>
-                    <p class="contact-description">I’m always open to new opportunities and collaborations, so feel free
+                    <p data-i18n="contact.contact_me">Contact me</p>
+                    <h2 data-i18n="contact.title" class="contact-title">Let's work<br>together</h2>
+                    <h3 data-i18n="contact.problem">Got a problem to solve?</h3>
+                    <p data-i18n="contact.description" class="contact-description">I’m always open to new opportunities
+                        and collaborations, so feel free
                         to reach out. I’m
                         particularly interested in roles where I can combine clean, structured code with thoughtful
                         design to create real value for users.
                         <br><br>
-                        Need a Frontend developer?<span class="contact-description-span"> Let's talk!</span>
+                        Need a Frontend developer?<span class="contact-description-span">Let's talk!</span>
                     </p>
                 </div>
                 <div class="contact-right">
-                    <div class="contact-field">
-                        <h3>What's your name?</h3>
-                        <p>Your name goes here</p>
-                    </div>
+                    <label class="contact-field">
+                        <h3 data-i18n="contact.name">What's your name?</h3>
+                        <input id="name_sign_up" class="contact-input" data-i18n="contact.name_placeholder" placeholder="Your name goes here">
+                        <p id="required-sign_up-name" class="error-message">Oops! it seems your name is missing</p>
+                    </label>
 
-                    <div class="contact-field">
-                        <h3>What's your email?</h3>
-                        <p>youremail@email.com</p>
-                    </div>
+                    <label class="contact-field">
+                        <h3 data-i18n="contact.email">What's your email?</h3>
+                        <input id="contact-input" class="contact-input" data-i18n="contact.email_placeholder" placeholder="youremail@email.com">
+                        <p id="required-sign_up-email" class="error-message">Oops! it seems your email is missing</p>
+                    </label>
 
-                    <div class="contact-field help-field">
-                        <h3>How can I help you?</h3>
-                        <p>Hello Lukas, I am interested in...</p>
-                    </div>
+                    <label class="contact-field help-field">
+                        <h3 data-i18n="contact.help">How can I help you?</h3>
+                        <input class="contact-input" data-i18n="contact.help_placeholder" placeholder="Hello Lukas, I am interested in...">
+                    </label>
                     <div class="contact-checkbox">
                         <label class="custom-checkbox">
                             <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
-                        <span class="contact-checkbox-text">I've read the <span>privacy policy</span> and agree to the
+                        <span data-i18n="contact.privacy_policy" class="contact-checkbox-text">I've read the
+                            <span>privacy policy</span> and agree to the
                             processing of my data as outlined</span>
                     </div>
                     <div class="hero-buttons technologie-button contact-button">
                         <a href="#">
                             <div class="btn-wrapper">
-                                <span class="text">Say Hello ;)</span>
-                                <span class="text">Say Hello ;)</span>
+                                <span data-i18n="contact.button" class="text">Say Hello ;)</span>
+                                <span data-i18n="contact.button" class="text">Say Hello ;)</span>
                             </div>
                     </div>
                     </a>
