@@ -290,31 +290,56 @@ prevBtn.addEventListener('click', () => {
     splide.go('<');
 });
 
-const nameInput = document.getElementById("name_sign_up");
-let touched = false;
-
-nameInput.addEventListener("focus", () => {
-    touched = true;
+document.querySelectorAll(".contact-input").forEach(input => {
+    setupValidation(input);
 });
 
-nameInput.addEventListener("blur", () => {
-    if (touched) {
-        validateName(nameInput.value.trim());
-    }
-});
+function setupValidation(input) {
+    const container = input.closest(".contact-field");
+    const error = container.querySelector(".error-message");
+    let touched = false;
+    input.addEventListener("focus", () => {
+        touched = true;
+    });
 
-function validateName(value) {
-    const nameInput = document.getElementById("name_sign_up");
-    const error = document.getElementById("required-sign_up-name");
+    input.addEventListener("blur", () => {
+        if (touched) validate();
+    });
+    input.addEventListener("input", validate);
 
+    function validate() {
+        const value = input.value.trim();
 
-    if (!value.trim()) {
-        nameInput.classList.add("submit");
-        error.classList.add("opacity-1");
-        return false;
-    } else {
-        nameInput.classList.remove("submit");
-        error.classList.remove("opacity-1");
-        return true;
+        let isValid = value.length > 0;
+
+        if (input.type === "email") {
+            isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        }
+
+        if (!value) {
+            container.classList.add("submit");
+            error?.classList.add("opacity-1");
+            input.placeholder = "";
+            return false;
+        } else {
+            container.classList.remove("submit");
+            error?.classList.remove("opacity-1");
+            return true;
+        }
     }
 }
+
+const overlay = document.querySelector(".mobile-overlay-container");
+const menuIcon = document.getElementById("mobile-menu-icon");
+
+function menuToggle() {
+    overlay.classList.toggle("show");
+}
+
+menuIcon.addEventListener("click", menuToggle);
+
+overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) {
+        overlay.classList.remove("show");
+    }
+});

@@ -22,22 +22,27 @@
     <div class="cursor-glow"></div>
     <header class="navbar">
         <div class="navbar-container">
-
-            <div class="nav-left">
-
-                <div class="language-switch">
-                    <a id="english" href="#">EN</a>
-                    <a id="german" href="#">DE</a>
-                </div>
-
-                <nav class="nav-links">
-                    <a class="nav-text" data-i18n="nav.about" href="#about">About me</a>
-                    <a class="nav-text" data-i18n="nav.skills" href="#">Skills</a>
-                    <a class="nav-text" data-i18n="nav.projects" href="#portfolio">Projects</a>
-                </nav>
-
+            <div class="mobile-menu">
+                <img id="mobile-menu-icon" class="mobile-menu-icon" src="./img/icons/menu.png">
             </div>
+            <div class="mobile-overlay-container">
+                <div id="mobile-overlay" class="mobile-overlay">
+                    <div id="nav-left" class="nav-left">
 
+                        <div class="language-switch">
+                            <a id="english" href="#">EN</a>
+                            <a id="german" href="#">DE</a>
+                        </div>
+
+                        <nav class="nav-links">
+                            <a class="nav-text" data-i18n="nav.about" href="#about">About me</a>
+                            <a class="nav-text" data-i18n="nav.skills" href="#">Skills</a>
+                            <a class="nav-text" data-i18n="nav.projects" href="#portfolio">Projects</a>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
             <div class="logo">
                 <img class="logo-img" src="./img/Logo/Scjmaps.png">
                 <span class="name">Philipp<br> Nowotnick</span>
@@ -73,8 +78,7 @@
                 </div>
                 <div class="hero-content">
                     <p data-i18n="hero.role">Frontend Developer</p>
-                    <h1>Philipp Nowotnick</h1>
-
+                    <h1 class="hero-name">Philipp <br class="mobile-break"> Nowotnick</h1>
                     <div class="hero-buttons">
                         <a href="#portfolio">
                             <div class="btn-wrapper">
@@ -121,7 +125,7 @@
                 <div class="about-left">
                     <div class="profile-image-wrapper">
                         <img class="profile-photo-background" src="./img/backgroundlines profilephoto.png">
-                        <img class="profile-photo" src="./img/profilephoto/Okay 1.jpg">
+                        <img class="profile-photo" src="./img/Bewerbungsfoto 2026.jpg">
                     </div>
                 </div>
 
@@ -229,7 +233,7 @@
                                 <div class="portfolio-overlay-left">
                                     <h1 id="overlay-number">01</h1>
                                     <h2 id="overlay-title">Join</h2>
-                                    <h3 id="overlay-about" >What is this project about?</h3>
+                                    <h3 id="overlay-about">What is this project about?</h3>
                                     <p id="overlay-description">Task manager inspired by the Kanban
                                         System. Create and organize tasks using drag
                                         and
@@ -244,8 +248,8 @@
                                     </div>
 
                                     <div class="project-link-container">
-                                        <a target="_blank" rel="noopener noreferrer" id="overlay-github" class="project-link"
-                                            href="https://github.com/codeNow26/Join---Portfolio">
+                                        <a target="_blank" rel="noopener noreferrer" id="overlay-github"
+                                            class="project-link" href="https://github.com/codeNow26/Join---Portfolio">
                                             GitHub
                                             <img src="./img/icons/arrow_outward.png">
                                         </a>
@@ -258,7 +262,8 @@
                                     </div>
                                 </div>
                                 <div class="portfolio-overlay-right">
-                                    <img id="overlay-screenshot" class="Join-screenshot" src="./img/icons/Join Screenshot.png">
+                                    <img id="overlay-screenshot" class="Join-screenshot"
+                                        src="./img/icons/Join Screenshot.png">
                                 </div>
                             </div>
                         </div>
@@ -318,11 +323,14 @@
                                 <div class="feedback-card">
                                     <img class="quote-icon" src="./img/icons/quotes.png">
                                     <p class="feedback-card-text">
-                                        Zitat 1
+                                        "Philipp ist wirklich ein kreativer Mensch. Er findet stets die modernsten
+                                        Lösungen für die komplexesten Probleme. Es ist eine echte Freude, mit ihm zu
+                                        arbeiten, denn man weiß, dass man sich auf ihn verlassen kann, wenn es wirklich
+                                        darauf ankommt"
                                     </p>
                                     <div class="feedback-footer">
                                         <div class="feedback-line"></div>
-                                        <span class="feedback-author">Frau Jado – Team Partner</span>
+                                        <span class="feedback-author">Halid Crnkic – Team Partner</span>
                                     </div>
                                 </div>
                             </li>
@@ -381,21 +389,25 @@
                     </p>
                 </div>
                 <div class="contact-right">
-                    <label class="contact-field">
+                    <label id="name-field" class="contact-field">
                         <h3 data-i18n="contact.name">What's your name?</h3>
-                        <input id="name_sign_up" class="contact-input" data-i18n="contact.name_placeholder" placeholder="Your name goes here">
+                        <input id="name_sign_up" class="contact-input" data-i18n="contact.name_placeholder"
+                            placeholder="Your name goes here">
                         <p id="required-sign_up-name" class="error-message">Oops! it seems your name is missing</p>
                     </label>
 
-                    <label class="contact-field">
+                    <label id="email-field" class="contact-field">
                         <h3 data-i18n="contact.email">What's your email?</h3>
-                        <input id="contact-input" class="contact-input" data-i18n="contact.email_placeholder" placeholder="youremail@email.com">
-                        <p id="required-sign_up-email" class="error-message">Oops! it seems your email is missing</p>
+                        <input id="email_sign_up" class="contact-input" data-i18n="contact.email_placeholder"
+                            type="email" placeholder="youremail@email.com">
+                        <p id="required-sign_up-email" class="error-message">Hoppla! your email is required</p>
                     </label>
 
-                    <label class="contact-field help-field">
+                    <label id="help-field" class="contact-field help-field">
                         <h3 data-i18n="contact.help">How can I help you?</h3>
-                        <input class="contact-input" data-i18n="contact.help_placeholder" placeholder="Hello Lukas, I am interested in...">
+                        <input id="help_sign_up" class="contact-input" data-i18n="contact.help_placeholder"
+                            placeholder="Hello Lukas, I am interested in...">
+                        <p id="required-sign_up-help" class="error-message">What do you need to develop?</p>
                     </label>
                     <div class="contact-checkbox">
                         <label class="custom-checkbox">

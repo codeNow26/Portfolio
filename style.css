@@ -36,10 +36,7 @@ html {
 }
 
 main {
-    height: 100dvh;
     flex: 1;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     scrollbar-width: thin;
     overflow-x: hidden;
@@ -48,8 +45,6 @@ main {
 .snap-section {
     display: flex;
     height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
 }
 
 .hero {
@@ -326,6 +321,7 @@ h1 {
     justify-content: flex-start;
     align-items: center;
     gap: 16px;
+    margin-left: 40px;
 }
 
 .scroll-indicator a {
@@ -368,10 +364,10 @@ h1 {
 }
 
 .hero-social {
-    position: fixed;
-    right: 96px;
-    top: 70%;
-    transform: translateY(-50%);
+    position: absolute;
+    right: 0;
+    top: 65%;
+    width: 2px;
     color: white;
     transition: ease-in-out 0.2s;
     cursor: pointer;
@@ -379,7 +375,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 130px;
-
+    margin-right: 50px;
 }
 
 .hero-email {
@@ -405,7 +401,7 @@ h1 {
 
 .social-indicator-vector {
     width: 1px;
-    height: 100px;
+    height: 170px;
     margin-top: 50px;
     background-color: #3DCFB6;
 }
@@ -430,12 +426,12 @@ h1 {
     max-width: 1440px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 120px;
 }
 
 .profile-photo {
-    width: 100%;
+    width: 60%;
     border-radius: 30px;
     height: auto;
     position: relative;
@@ -450,10 +446,10 @@ h1 {
 .profile-photo-background {
     z-index: 0;
     position: absolute;
-    height: 620px;
-    top: 8px;
-    left: -23px;
-    width: 100%;
+    height: 608px;
+    top: -30px;
+    left: -15px;
+    width: 66%;
 }
 
 .about-right {
@@ -717,7 +713,7 @@ h1 {
 }
 
 .show {
-    display: flex;
+    display: flex !important;
 }
 
 .opacity-1 {
@@ -1152,6 +1148,7 @@ h1 {
     border-top: 1px solid #3DCFB6;
     cursor: pointer;
     transition: all 0.4s ease;
+    margin-bottom: -1px;
 }
 
 .contact-field:hover {
@@ -1300,4 +1297,88 @@ h1 {
     position: absolute;
     bottom: 0px;
     opacity: 0;
+}
+
+.submit {
+    border-top: 1px solid #ff4d4d;
+    border-bottom: 1px solid #ff4d4d !important;
+    z-index: 999;
+}
+
+.mobile-break {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.mobile-overlay {
+    position: fixed;
+    top: 7%;
+    right: 3%;
+    width: 240px;
+    height: 260px;
+    background: linear-gradient(1deg, #1C1C1C, #08463B);
+    border: 1px solid #3DCFB6;
+    border-radius: 30px;
+}
+
+.mobile-overlay-container {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.mobile-overlay-container.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media (max-width: 1250px) {
+    .hero-name {
+        font-size: 100px;
+        white-space: normal;
+    }
+
+    .mobile-break {
+        display: inline;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .nav-left {
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-text:after {
+        display: none;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .name {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        position: absolute;
+        right: 40px;
+    }
+
+    .logo-img {
+        position: absolute;
+        left: 40px;
+    }
 }
