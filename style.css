@@ -8,6 +8,8 @@ html {
     scroll-behavior: smooth;
 }
 
+
+
 * {
     margin: 0;
     padding: 0;
@@ -44,7 +46,7 @@ main {
 
 .snap-section {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .hero {
@@ -52,6 +54,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     background: linear-gradient(1deg, #1C1C1C, #08463B);
 }
 
@@ -139,6 +142,10 @@ h1 {
     justify-content: center;
     gap: 48px;
     font-family: "Karla", sans-serif;
+}
+
+.hero-buttons-container {
+    margin-bottom: 70px;
 }
 
 .hero-buttons a {
@@ -250,8 +257,16 @@ h1 {
     left: 40%;
 }
 
+.github-container {
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
+
 .github-hover-icon {
     position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
 }
@@ -260,15 +275,26 @@ h1 {
     opacity: 1;
 }
 
+.linkedIn-container {
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
+
 .linkedIn-hover-icon {
     position: absolute;
-    top: 195px;
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
 }
 
 .linkedIn-hover-icon:hover {
     opacity: 1;
+}
+
+.ticker-wrapper {
+    overflow: hidden;
 }
 
 .ticker {
@@ -366,7 +392,7 @@ h1 {
 .hero-social {
     position: absolute;
     right: 0;
-    top: 65%;
+    top: 58%;
     width: 2px;
     color: white;
     transition: ease-in-out 0.2s;
@@ -374,7 +400,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 130px;
+    gap: 64px;
     margin-right: 50px;
 }
 
@@ -384,6 +410,8 @@ h1 {
     transform: rotate(-90deg);
     font-weight: 400;
     font-size: 18px;
+    text-decoration: none;
+    color: white;
     transition: all 0.2s ease-in-out;
 }
 
@@ -427,14 +455,17 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 120px;
+    margin: 0px 112px 0px 112px;
+    gap: 60px;
 }
 
 .profile-photo {
-    width: 60%;
+    max-width: 480px;
+    width: 100%;
     border-radius: 30px;
     height: auto;
     position: relative;
+    object-fit: cover;
     z-index: 2;
 }
 
@@ -446,14 +477,21 @@ h1 {
 .profile-photo-background {
     z-index: 0;
     position: absolute;
-    height: 608px;
-    top: -30px;
-    left: -15px;
-    width: 66%;
+    height: 100%;
+    inset: 0;
+    transform: translate(-5%, -5%);
+    width: 100%;
 }
 
 .about-right {
+    flex: 1;
     color: white;
+}
+
+.about-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .textbox-header-text {
@@ -465,17 +503,17 @@ h1 {
 }
 
 .textbox-text-container {
-    height: 590px;
-    width: 568px;
+    width: 100%;
     border: 1px solid rgba(61, 207, 182, 1);
     border-radius: 30px;
     background: rgba(61, 207, 182, 0.1);
+    padding: 30px;
 }
 
 .textbox-title {
     color: #3DCFB6;
     font-size: 64px;
-    margin: 32px;
+    margin: 0px 0px 32px 0px;
 }
 
 .textbox-text {
@@ -483,9 +521,6 @@ h1 {
     line-height: 1.4;
     font-family: "Karla", sans-serif;
     font-weight: 400;
-    padding-left: 32px;
-    padding-bottom: 32px;
-    padding-right: 32px;
     color: white;
 }
 
@@ -493,10 +528,14 @@ h1 {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
     font-family: "Karla", sans-serif;
+}
+
+.about-item-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 20px;
 }
 
 .textbox-icon {
@@ -523,10 +562,17 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 0px 96px 0px 96px;
+    gap: 96px;
 }
 
 .technologies-left {
+    flex: 1;
     color: white;
+}
+
+.technologies-right {
+    flex: 1;
 }
 
 .skillset-icons {
@@ -597,14 +643,13 @@ h1 {
 }
 
 .skill-text {
-    padding-left: 32px;
-    padding-bottom: 16px;
+    padding: 32px 0px 16px 0px;
     font-size: 24px;
     font-weight: 700;
 }
 
 .technologie-button {
-    padding-left: 32px;
+    padding-top: 40px;
 }
 
 .portfolio {
@@ -812,11 +857,9 @@ h1 {
 
 .Join-screenshot {
     width: 100%;
-    height: 356px;
-    border-radius: 32px;
-    min-width: 570px;
-    min-height: 360px;
+    height: auto;
     max-width: 600px;
+    border-radius: 32px;
 }
 
 .join-hover-img {
@@ -842,7 +885,7 @@ h1 {
 
 .background-join {
     width: 401px;
-    height: 230px;
+    height: auto;
     position: absolute;
     top: 42%;
     right: 19%;
@@ -1339,6 +1382,11 @@ h1 {
     pointer-events: auto;
 }
 
+.mail-icon,
+.mail-icon-hover {
+    display: none;
+}
+
 @media (max-width: 1250px) {
     .hero-name {
         font-size: 100px;
@@ -1349,9 +1397,27 @@ h1 {
         display: inline;
     }
 
+    .textbox-title {
+        font-size: 3rem;
+    }
+
+    .textbox-text {
+        font-size: 1rem;
+    }
+
+    .about-container {
+        margin: 0px 40px 0px 40px;
+        gap: 60px;
+    }
+
 }
 
 @media (max-width: 800px) {
+    .hero-name {
+        font-size: 80px;
+        white-space: normal;
+    }
+
     .nav-left {
         flex-direction: column-reverse;
         justify-content: center;
@@ -1371,6 +1437,10 @@ h1 {
         display: none;
     }
 
+    .hero-social {
+        top: 79%;
+    }
+
     .mobile-menu {
         display: block;
         position: absolute;
@@ -1381,4 +1451,235 @@ h1 {
         position: absolute;
         left: 40px;
     }
+
+    .mail_mobile {
+        position: relative;
+        top: 10px;
+        right: 14px;
+    }
+
+    .mail-icon {
+        display: block;
+        position: absolute;
+        opacity: 1;
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .mail-icon-hover:hover {
+        opacity: 1;
+    }
+
+    .mail-icon-hover {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .mail_mobile::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background-color: #3DCFB6;
+        border-radius: 30px;
+        position: absolute;
+        bottom: -18px;
+        left: 36px;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        right: 0px;
+    }
+
+    .mail_mobile:hover::after {
+        opacity: 1;
+    }
+
+    .hero-email {
+        display: none;
+    }
+
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0px 16px 0px 16px;
+        gap: 60px;
+    }
+
+    .about-me {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .textbox-text-container {
+        padding: 32px 16px 32px 16px;
+    }
+
+
+    .profile-photo {
+        max-width: 400px;
+        width: 80%;
+        height: auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .profile-photo-background {
+        z-index: 0;
+        position: absolute;
+        height: 100%;
+        inset: 0;
+        transform: translate(8%, -4%);
+        width: 80%;
+    }
+
+    .profile-image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .technologies-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+        gap: 40px;
+        margin: 0px;
+    }
+
+    .skill-text,
+    .skill-span {
+        padding-top: 20px;
+        padding-left: 0px;
+        padding-bottom: 16px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .skillset-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 72px;
+        max-width: 632px;
+        height: 100%;
+    }
+
+    .portfolio-container {
+        width: 100%;
+        height: auto;
+        margin: 32px 16px 32px 16px;
+    }
+
+    .portfolio-text {
+        padding: 20px 0px;
+    }
+
+    .project-list {
+        width: 100%;
+    }
+
+    .project {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .project-name {
+        padding: 16px 0px 10px 0px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+    .tech span:not(:last-child)::after {
+        margin-left: 2px;
+    }
+
+    .tech {
+        padding-right: 0px;
+        padding-bottom: 16px;
+    }
+
+    .portfolio-overlay {
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(1deg, #1C1C1C, #08463B);
+        width: calc(100% - 32px);
+        max-width: 1400px;
+        max-height: 100vh;
+        padding: 80px 24px 32px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #3DCFB6;
+        border-radius: 38px;
+        font-family: "Karla", sans-serif;
+    }
+
+
+    .portfolio-overlay-container {
+        flex-direction: column-reverse;
+        margin: 16px;
+        gap: 0px;
+    }
+
+    .portfolio-overlay-container h1 {
+        font-size: 76px;
+    }
+
+    .Join-screenshot {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .hero-content {
+        gap: 15px;
+    }
+
+    .hero-name {
+        font-size: 44px;
+        white-space: normal;
+    }
+
+    .hero-content p {
+        font-size: 24px;
+        margin: 0px 20px 0px 20px;
+    }
+
+    .hero-buttons {
+        margin-top: 0px;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .technologie-button {
+        padding-top: 20px;
+    }
+
+    .ticker {
+        padding: 10px 10px;
+        bottom: 35px;
+    }
+
+    .ticker-track {
+        gap: 20px;
+        font-size: 20px;
+    }
+
+    .textbox-title {
+        font-size: 2rem;
+        margin: 0px 0px 16px 0px;
+    }
+
+    .textbox-header-text {
+        font-size: 18px;
+    }
+
 }
