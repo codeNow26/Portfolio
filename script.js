@@ -99,6 +99,7 @@ function setupValidation(input) {
     input.addEventListener("blur", () => {
         if (touched) validate();
     });
+
     input.addEventListener("input", validate);
 
     function validate() {
@@ -110,18 +111,43 @@ function setupValidation(input) {
             isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
         }
 
-        if (!value) {
+        if (isValid) {
+            input.classList.add("valid");
+            input.classList.remove("invalid");
+        } else {
+            input.classList.remove("valid");
+            input.classList.add("invalid");
+        }
+
+        if (!value && touched) {
             container.classList.add("submit");
             error?.classList.add("opacity-1");
             input.placeholder = "";
-            return false;
         } else {
             container.classList.remove("submit");
             error?.classList.remove("opacity-1");
-            return true;
         }
+        validateForm();
+
+        return isValid;
     }
 }
+
+function validateForm() {
+    const inputs = document.querySelectorAll(".contact-input");
+    button = document.getElementById("contact-submit");
+    let formValid = true;
+
+    inputs.forEach(input => {
+        if (!input.classList.contains("valid")) {
+            formValid = false;
+        }
+    });
+
+    button.disabled = !formValid;
+}
+
+//Weitermachen hier, button braucht feedback wann er enabled oder disabled ist
 
 const projectOrder = ["join", "el_pollo_loco", "bubble"];
 let currentProjectIndex = 0;
@@ -289,51 +315,51 @@ window.addEventListener("load", handleNavPosition);
  * @param {Event} event
  */
 function sendMail(event) {
-  event.preventDefault();
-  const checkbox = document.getElementById("privacy-check");
-  const statusSuccess = document.getElementById("form-status");
-  const statusError = document.getElementById("privacy-error");
-  const btn = document.querySelector('button[type="submit"]');
-  statusSuccess.classList.remove("active");
-  statusError.classList.remove("active");
+    event.preventDefault();
+    const checkbox = document.getElementById("privacy-check");
+    const statusSuccess = document.getElementById("form-status");
+    const statusError = document.getElementById("privacy-error");
+    const btn = document.querySelector('button[type="submit"]');
+    statusSuccess.classList.remove("active");
+    statusError.classList.remove("active");
 
-  if (!checkbox.checked) {
-    statusError.innerText = "Please accept the privacy policy";
-    statusError.style.color = "#EC7B7B";
-    statusError.classList.add("active");
-    return;
-  }
+    if (!checkbox.checked) {
+        statusError.innerText = "Please accept the privacy policy";
+        statusError.style.color = "#EC7B7B";
+        statusError.classList.add("active");
+        return;
+    }
 
-  const name = document.querySelector('[name="name"]').value;
-  const email = document.querySelector('[name="email"]').value;
-  const message = document.querySelector('[name="message"]').value;
+    const name = document.querySelector('[name="name"]').value;
+    const email = document.querySelector('[name="email"]').value;
+    const message = document.querySelector('[name="message"]').value;
 
-  btn.disabled = true;
-  btn.innerText = "Sending...";
+    btn.disabled = true;
+    btn.innerText = "Sending...";
 
-  emailjs.send("service_a5hs47c", "template_6s3rwh8", {
-    name: name,
-    email: email,
-    message: message
-  })
-  .then(() => {
-    statusSuccess.innerText = "Message sent successfully";
-    statusSuccess.style.color = "#3DCFB6";
-    statusSuccess.classList.add("active");
+    emailjs.send("service_a5hs47c", "template_6s3rwh8", {
+        name: name,
+        email: email,
+        message: message
+    })
+        .then(() => {
+            statusSuccess.innerText = "Message sent successfully";
+            statusSuccess.style.color = "#3DCFB6";
+            statusSuccess.classList.add("active");
 
-    document.querySelector("form").reset();
+            document.querySelector("form").reset();
 
-    btn.disabled = false;
-    btn.innerText = "Say Hello ;)";
-  })
-  .catch((error) => {
-    console.error(error);
+            btn.disabled = false;
+            btn.innerText = "Say Hello ;)";
+        })
+        .catch((error) => {
+            console.error(error);
 
-    statusError.innerText = "Something went wrong. Try again.";
-    statusError.style.color = "#EC7B7B";
-    statusError.classList.add("active");
+            statusError.innerText = "Something went wrong. Try again.";
+            statusError.style.color = "#EC7B7B";
+            statusError.classList.add("active");
 
-    btn.disabled = false;
-    btn.innerText = "Try again";
-  });
+            btn.disabled = false;
+            btn.innerText = "Try again";
+        });
 }

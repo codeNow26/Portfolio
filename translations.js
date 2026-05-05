@@ -32,7 +32,7 @@ const translations = {
         },
         portfolio: {
             title: "Featured Projects",
-            description: "Explore a selection of my work here - interact with <br>projects to see my skills in action",
+            description: "Explore a selection of my work here - interact with projects to see my skills in action",
             about: "what is this project about?",
             projects: {
                 join: {
@@ -97,7 +97,7 @@ const translations = {
         },
         portfolio: {
             title: "Ausgewählte Projekte",
-            description: "Entdecke eine Auswahl meiner Arbeiten hier - interagiere mit <br>Projekten, um meine Fähigkeiten in Aktion zu sehen",
+            description: "Entdecke eine Auswahl meiner Arbeiten hier - interagiere mit Projekten, um meine Fähigkeiten in Aktion zu sehen",
             projects: {
                 about: "Worum geht es bei diesem Projekt?",
                 join: {

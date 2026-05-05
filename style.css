@@ -553,12 +553,7 @@ h1 {
     display: flex;
     justify-content: center;
     position: relative;
-    background:
-        radial-gradient(circle at left,
-            rgba(8, 70, 59, 0.25) 0%,
-            rgba(8, 70, 59, 0.1) 20%,
-            transparent 40%) #1C1C1C;
-
+   background: radial-gradient(circle at left, rgba(8, 70, 59, 0.4) 5%, rgba(8, 70, 59, 0.5) 10%, transparent 2%) #1C1C1C;
 }
 
 .technologies-container {
