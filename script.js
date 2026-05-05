@@ -1,6 +1,8 @@
 const glow = document.querySelector('.cursor-glow');
 let currentLanguage = localStorage.getItem("lang") || "en";
 
+emailjs.init("mDZPlBNGP4szLcUBH");
+
 window.addEventListener('mousemove', (e) => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
@@ -16,6 +18,7 @@ window.addEventListener('mousemove', (e) => {
     mouseY = e.clientY;
 });
 
+/** Animates cursor glow */
 function animate() {
     currentX += (mouseX - currentX) * 0.7;
     currentY += (mouseY - currentY) * 0.7;
@@ -27,167 +30,6 @@ function animate() {
 }
 
 animate();
-
-
-const translations = {
-    en: {
-        nav: {
-            about: "About me",
-            skills: "Skills",
-            projects: "Projects"
-        },
-        hero: {
-            role: "Frontend Developer",
-            work: "Check my work",
-            contact: "Contact me",
-            ticker_remote: "Available for remote work",
-            ticker_frontend: "Frontend Developer",
-            ticker_town: "based in Hoyerswerda",
-            ticker_work: "Open to work",
-        },
-        about: {
-            header: "Who I Am",
-            title: "About me",
-            description: "Hey there, I'm Philipp! I got into coding because I wanted to build things myself instead of just consuming them. I enjoy turning ideas into clean, functional interfaces and am always eager to learn new technologies and improve my skills.",
-            remote: "I’m open to remote, hybrid, or on-site work - whatever fits best for the project and the team.",
-            skills: "I enjoy learning new technologies and constantly improving my skills. I’m always open to new ideas, tools, and better ways of doing things.",
-            solutions: "I like to break problems down and find simple, efficient solutions. I stay persistent, think creatively, and focus on building clean and maintainable code.",
-        },
-        technologies: {
-            header: "Technologies",
-            skillset: "Skill set",
-            description: "I build things that actually work. Clean, structured, without unnecessary complexity.",
-            skill_text: "You need <span class=\"skill-span\">another skill?</span>",
-            contact: "Feel free to contact me. I look forward to <br> expanding on my previous knowledge",
-            button: "Let's Talk",
-        },
-        portfolio: {
-            title: "Featured Projects",
-            description: "Explore a selection of my work here - interact with <br>projects to see my skills in action",
-            about: "what is this project about?",
-            projects: {
-                join: {
-                    description: "Task manager inspired by the Kanban system. Create and organize tasks using drag and drop functions, assign users and categories",
-                    number: "01"
-                },
-                el_pollo_loco: {
-                    description: "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight agains the crazy hen",
-                    number: "02"
-                }
-            }
-        },
-        feedback: {
-            title: "What my colleagues say about me",
-        },
-        contact: {
-            contact_me: "Contact me",
-            title: "Let's work<br>together",
-            problem: "Got a problem to solve?",
-            description: "I’m always open to new opportunities and collaborations, so feel free to reach out. I’m particularly interested in roles where I can combine clean, structured code with thoughtful design to create real value for users.<br><br>Need a Frontend developer? <span class=\"contact-description-span\">Let's talk!</span>",
-            name: "What's your name?",
-            name_placeholder: "your name goes here",
-            email: "What's your email?",
-            email_placeholder: "youremail@email.com",
-            help: "How can I help you?",
-            help_placeholder: "Hello Lukas, i am interested in...",
-            privacy_policy: "I've read the <span>privacy policy</span> and agree to the processing of my data as outlined",
-            button: "Say Hello ;)",
-        }
-
-    },
-    de: {
-        nav: {
-            about: "Über mich",
-            skills: "Skills",
-            projects: "Projekte"
-        },
-        hero: {
-            role: "Frontend Entwickler",
-            work: "meine Projekte",
-            contact: "Kontakt",
-            ticker_remote: "verfügbar für Remote-Arbeit",
-            ticker_frontend: "Frontend Entwickler",
-            ticker_town: "Ansässig in Hoyerswerda",
-            ticker_work: "Offen für neue Projekte",
-        },
-        about: {
-            header: "Wer ich bin",
-            title: "Über mich",
-            description: "Hallo, ich bin Philipp! Ich habe mit dem Programmieren angefangen, weil ich Dinge selbst bauen wollte, anstatt sie nur zu konsumieren. Ich genieße es, Ideen in saubere, funktionale Schnittstellen umzusetzen und bin immer bestrebt, neue Technologien zu lernen und meine Fähigkeiten zu verbessern.",
-            remote: "Ich bin offen für Remote-, Hybrid- oder On-Site-Arbeit - je nachdem, was am besten für das Projekt und das Team passt.",
-            skills: "Ich genieße es, neue Technologien zu lernen und meine Fähigkeiten ständig zu verbessern. Ich bin immer offen für neue Ideen, Tools und bessere Möglichkeiten, Dinge zu tun.",
-            solutions: "Ich mag es, Probleme zu zerlegen und einfache, effiziente Lösungen zu finden. Ich bleibe hartnäckig, denke kreativ und konzentriere mich darauf, sauberen und wartbaren Code zu schreiben.",
-        },
-        technologies: {
-            header: "Technologien",
-            skillset: "Fähigkeiten",
-            description: "Ich baue Dinge, die tatsächlich funktionieren. Sauber, strukturiert, ohne unnötige Komplexität.",
-            skill_text: "Du suchst <span class=\"skill-span\">eine bestimmte Fähigkeit?</span>",
-            contact: "Zögere nicht, mich zu kontaktieren. Ich freue mich darauf, mein bisheriges Wissen zu erweitern",
-            button: "Lass uns reden",
-        },
-        portfolio: {
-            title: "Ausgewählte Projekte",
-            description: "Entdecke eine Auswahl meiner Arbeiten hier - interagiere mit <br>Projekten, um meine Fähigkeiten in Aktion zu sehen",
-            projects: {
-                about: "Worum geht es bei diesem Projekt?",
-                join: {
-                    description: "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu",
-                    number: "01"
-                },
-                el_pollo_loco: {
-                    description: "Sprung-, Lauf- und Wurfspiel basierend auf einem objektorientierten Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen",
-                    number: "02"
-                }
-            }
-        },
-        feedback: {
-            title: "Was meine Kollegen über mich sagen",
-        },
-        contact: {
-            contact_me: "Kontaktiere mich",
-            title: "Lass uns<br>zusammen arbeiten",
-            problem: "Gibt es ein Problem zu lösen?",
-            description: "Ich bin immer offen für neue Möglichkeiten und Kooperationen, also zögere nicht, dich zu melden. Ich bin besonders an Rollen interessiert, in denen ich sauberen, strukturierten Code mit durchdachtem Design kombinieren kann, um echten Mehrwert für Benutzer zu schaffen.<br><br>Du brauchst einen Frontend-Entwickler? <span class=\"contact-description-span\">Lass uns reden!</span>",
-            name: "Wie ist dein Name?",
-            name_placeholder: "Dein Name hier",
-            email: "Wie ist deine E-Mail?",
-            email_placeholder: "youremail@email.com",
-            help: "Wie kann ich dir helfen?",
-            help_placeholder: "Hallo Lukas, ich interessiere mich für...",
-            privacy_policy: "Ich habe die <span>Datenschutzrichtlinie</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu",
-            button: "Sag Hallo ;)",
-        }
-    },
-}
-
-function getTranslation(lang, key) {
-    return key.split('.').reduce((obj, i) => obj[i], translations[lang]);
-}
-
-function setLanguage(lang) {
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        el.innerHTML = getTranslation(lang, el.dataset.i18n);
-    });
-
-    localStorage.setItem("lang", lang);
-    currentLanguage = lang;
-    switchLanguageButton(lang);
-}
-
-window.onload = () => {
-    const lang = localStorage.getItem("lang") || "en";
-    setLanguage(lang);
-};
-
-
-document.getElementById("english").onclick = () => setLanguage("en");
-document.getElementById("german").onclick = () => setLanguage("de");
-
-function switchLanguageButton(lang) {
-    document.getElementById("english").classList.toggle("active-lang", lang === "en");
-    document.getElementById("german").classList.toggle("active-lang", lang === "de");
-}
 
 const projects = {
     join: {
@@ -207,74 +49,21 @@ const projects = {
     }
 };
 
-function openProjectsOverlay(project) {
-    const overlay = document.getElementById("portfolio-overlay");
-    const backdrop = document.querySelector(".overlay-backdrop");
-
-    overlay.classList.add("show");
-    backdrop.classList.add("activeshow");
-
-    const lang = currentLanguage || "en";
-    const projectData = translations[lang].portfolio.projects[project];
-    const projectInfo = projects[project];
-
-    if (!projectData || !projectInfo) return;
-
-
-    document.querySelector("#overlay-title").textContent =
-        projectData.title || formatProjectName(project);
-
-    document.querySelector("#overlay-about").textContent =
-        projectData.about;
-
-    document.querySelector("#overlay-number").textContent =
-        projectData.number;
-
-    document.querySelector("#overlay-description").textContent =
-        projectData.description;
-
-    document.querySelector("#overlay-screenshot").src =
-        projectInfo.image;
-
-    document.querySelector("#overlay-github").href =
-        projectInfo.github;
-
-    document.querySelector("#overlay-live").href =
-        projectInfo.live;
-
-    const techContainer = document.querySelector("#overlay-tech");
-    techContainer.innerHTML = "";
-
-    projectInfo.tech.forEach(icon => {
-        techContainer.innerHTML += `
-            <img class="tech-icon" src="./img/icons/${icon}">
-        `;
-    });
-}
-
-function formatProjectName(name) {
-    return name
-        .replaceAll("_", " ")
-        .replace(/\b\w/g, char => char.toUpperCase());
-}
-
-function closeProjectsOverlay() {
-    const overlay = document.getElementById("portfolio-overlay");
-    overlay.classList.remove("show");
-
-    const backdrop = document.querySelector(".overlay-backdrop");
-    backdrop.classList.remove("activeshow");
-}
-
-
 const splide = new Splide('.splide', {
     type: 'loop',
     arrows: false,
     pagination: false,
     focus: 'center',
-    fixedWidth: '900px',
-    start: 1,
+    perPage: 1,
+    start: 0,
     trimSpace: false,
+    gap: 30,
+    breakpoints: {
+        800: {
+            fixedWidth: '300px',
+            start: 0,
+        }
+    }
 });
 
 splide.mount();
@@ -294,10 +83,15 @@ document.querySelectorAll(".contact-input").forEach(input => {
     setupValidation(input);
 });
 
+/**
+ * Sets up validation for input
+ * @param {HTMLInputElement} input
+ */
 function setupValidation(input) {
     const container = input.closest(".contact-field");
     const error = container.querySelector(".error-message");
     let touched = false;
+
     input.addEventListener("focus", () => {
         touched = true;
     });
@@ -329,17 +123,217 @@ function setupValidation(input) {
     }
 }
 
+const projectOrder = ["join", "el_pollo_loco", "bubble"];
+let currentProjectIndex = 0;
+
+/**
+ * Opens project overlay (new version)
+ * @param {string} project
+ */
+function openProjectsOverlay(project) {
+    setCurrentProject(project);
+    showOverlay();
+    renderProject(project);
+}
+
+/**
+ * Sets current project index
+ * @param {string} project
+ */
+function setCurrentProject(project) {
+    currentProjectIndex = projectOrder.indexOf(project);
+    if (currentProjectIndex === -1) currentProjectIndex = 0;
+}
+
+/** Shows overlay */
+function showOverlay() {
+    document.getElementById("portfolio-overlay").classList.add("show");
+    document.querySelector(".overlay-backdrop").classList.add("activeshow");
+}
+
+/** Closes overlay */
+function closeProjectsOverlay() {
+    document.getElementById("portfolio-overlay").classList.remove("show");
+    document.querySelector(".overlay-backdrop").classList.remove("activeshow");
+}
+
+/**
+ * Renders project
+ * @param {string} project
+ */
+function renderProject(project) {
+    const lang = currentLanguage || "en";
+    const projectData = translations[lang].portfolio.projects[project];
+    const projectInfo = projects[project];
+
+    if (!projectData || !projectInfo) return;
+
+    updateText(projectData, project);
+    updateLinks(projectInfo);
+    updateTech(projectInfo.tech);
+}
+
+/**
+ * Updates text
+ * @param {object} data
+ * @param {string} project
+ */
+function updateText(data, project) {
+    document.querySelector("#overlay-title").textContent =
+        data.title || formatProjectName(project);
+
+    document.querySelector("#overlay-about").textContent =
+        data.about || "What is this project about?";
+
+    document.querySelector("#overlay-number").textContent =
+        data.number || "";
+
+    document.querySelector("#overlay-description").textContent =
+        data.description || "";
+}
+
+/**
+ * Updates links
+ * @param {object} info
+ */
+function updateLinks(info) {
+    document.querySelector("#overlay-screenshot").src = info.image || "";
+    document.querySelector("#overlay-github").href = info.github || "#";
+    document.querySelector("#overlay-live").href = info.live || "#";
+}
+
+/**
+ * Updates tech icons
+ * @param {string[]} techArray
+ */
+function updateTech(techArray = []) {
+    const container = document.querySelector("#overlay-tech");
+    container.innerHTML = "";
+
+    techArray.forEach(icon => {
+        container.innerHTML += `
+            <img class="tech-icon" src="./img/icons/${icon}">
+        `;
+    });
+}
+
+document.getElementById("next-project").addEventListener("click", nextProject);
+
+/** Goes to next project */
+function nextProject() {
+    currentProjectIndex++;
+
+    if (currentProjectIndex >= projectOrder.length) {
+        currentProjectIndex = 0;
+    }
+
+    renderProject(projectOrder[currentProjectIndex]);
+}
+
+/** Goes to previous project */
+function prevProject() {
+    currentProjectIndex--;
+
+    if (currentProjectIndex < 0) {
+        currentProjectIndex = projectOrder.length - 1;
+    }
+
+    renderProject(projectOrder[currentProjectIndex]);
+}
+
+/**
+ * Formats project name
+ * @param {string} name
+ * @returns {string}
+ */
+function formatProjectName(name) {
+    return name
+        .replaceAll("_", " ")
+        .replace(/\b\w/g, char => char.toUpperCase());
+}
+
 const overlay = document.querySelector(".mobile-overlay-container");
 const menuIcon = document.getElementById("mobile-menu-icon");
 
+menuIcon.addEventListener("click", menuToggle);
+
+/** Toggles mobile menu */
 function menuToggle() {
     overlay.classList.toggle("show");
 }
-
-menuIcon.addEventListener("click", menuToggle);
 
 overlay.addEventListener("click", (event) => {
     if (event.target === overlay) {
         overlay.classList.remove("show");
     }
 });
+
+const navLeft = document.getElementById("nav-left");
+const mobileOverlay = document.getElementById("mobile-overlay");
+const navbarContainer = document.querySelector(".navbar-container");
+
+/** Handles nav repositioning */
+function handleNavPosition() {
+    if (window.innerWidth <= 800) {
+        mobileOverlay.appendChild(navLeft);
+    } else {
+        navbarContainer.insertBefore(navLeft, navbarContainer.querySelector(".logo"));
+    }
+}
+
+window.addEventListener("resize", handleNavPosition);
+window.addEventListener("load", handleNavPosition);
+
+/**
+ * Sends email via EmailJS
+ * @param {Event} event
+ */
+function sendMail(event) {
+  event.preventDefault();
+  const checkbox = document.getElementById("privacy-check");
+  const statusSuccess = document.getElementById("form-status");
+  const statusError = document.getElementById("privacy-error");
+  const btn = document.querySelector('button[type="submit"]');
+  statusSuccess.classList.remove("active");
+  statusError.classList.remove("active");
+
+  if (!checkbox.checked) {
+    statusError.innerText = "Please accept the privacy policy";
+    statusError.style.color = "#EC7B7B";
+    statusError.classList.add("active");
+    return;
+  }
+
+  const name = document.querySelector('[name="name"]').value;
+  const email = document.querySelector('[name="email"]').value;
+  const message = document.querySelector('[name="message"]').value;
+
+  btn.disabled = true;
+  btn.innerText = "Sending...";
+
+  emailjs.send("service_a5hs47c", "template_6s3rwh8", {
+    name: name,
+    email: email,
+    message: message
+  })
+  .then(() => {
+    statusSuccess.innerText = "Message sent successfully";
+    statusSuccess.style.color = "#3DCFB6";
+    statusSuccess.classList.add("active");
+
+    document.querySelector("form").reset();
+
+    btn.disabled = false;
+    btn.innerText = "Say Hello ;)";
+  })
+  .catch((error) => {
+    console.error(error);
+
+    statusError.innerText = "Something went wrong. Try again.";
+    statusError.style.color = "#EC7B7B";
+    statusError.classList.add("active");
+
+    btn.disabled = false;
+    btn.innerText = "Try again";
+  });
+}

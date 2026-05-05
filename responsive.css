@@ -1,0 +1,441 @@
+@media (max-width: 1250px) {
+    .hero-name {
+        font-size: 100px;
+        white-space: normal;
+    }
+
+    .mobile-break {
+        display: inline;
+    }
+
+    .textbox-title {
+        font-size: 3rem;
+    }
+
+    .textbox-text {
+        font-size: 1rem;
+    }
+
+    .about-container {
+        margin: 0px 40px 0px 40px;
+        gap: 60px;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-name {
+        font-size: 80px;
+        white-space: normal;
+    }
+
+    .nav-left {
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .nav-text:after {
+        display: none;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .name {
+        display: none;
+    }
+
+    .hero-social {
+        top: 79%;
+    }
+
+    .mobile-menu {
+        display: block;
+        position: absolute;
+        right: 40px;
+    }
+
+    .textbox-title {
+        font-size: 48px;
+        margin: 0px 0px 16px 0px;
+    }
+
+    .logo-img {
+        position: absolute;
+        left: 0px;
+    }
+
+    .mail_mobile {
+        position: relative;
+        top: 10px;
+        right: 14px;
+    }
+
+    .mail-icon {
+        display: block;
+        position: absolute;
+        opacity: 1;
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .mail-icon-hover:hover {
+        opacity: 1;
+    }
+
+    .mail-icon-hover {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .mail_mobile::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background-color: #3DCFB6;
+        border-radius: 30px;
+        position: absolute;
+        bottom: -18px;
+        left: 36px;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        right: 0px;
+    }
+
+    .mail_mobile:hover::after {
+        opacity: 1;
+    }
+
+    .hero-email {
+        display: none;
+    }
+
+    .hero-buttons-container {
+        padding: 0px 16px 0px 16px;
+    }
+
+    .hero-buttons a {
+        padding: 12px 10px;
+    }
+
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0px 16px 0px 16px;
+        gap: 60px;
+    }
+
+    .about-me {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .textbox-text-container {
+        padding: 32px 16px 32px 16px;
+    }
+
+
+    .profile-photo {
+        max-width: 400px;
+        width: 80%;
+        height: auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .profile-photo-background {
+        z-index: 0;
+        position: absolute;
+        height: 100%;
+        inset: 0;
+        transform: translate(8%, -4%);
+        width: 80%;
+    }
+
+    .profile-image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .technologies-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+        gap: 40px;
+        margin: 0px;
+    }
+
+    .skill-text,
+    .skill-span {
+        padding-top: 20px;
+        padding-left: 0px;
+        padding-bottom: 16px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .skillset-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 72px;
+        max-width: 632px;
+        height: 100%;
+    }
+
+    .portfolio-container {
+        width: 100%;
+        height: auto;
+        margin: 32px 16px 32px 16px;
+    }
+
+    .portfolio-text {
+        padding: 20px 0px;
+        font-size: 16px;
+    }
+
+    .project-list {
+        width: 100%;
+    }
+
+    .project {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .project-name {
+        padding: 16px 0px 10px 0px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+    .tech span:not(:last-child)::after {
+        margin-left: 2px;
+    }
+
+    .tech {
+        padding-right: 0px;
+        padding-bottom: 16px;
+    }
+
+    .portfolio-overlay {
+        width: calc(100% - 32px);
+        max-height: 100vh;
+        padding: 80px 24px 32px;
+    }
+
+
+    .portfolio-overlay-container {
+        margin: 0px;
+        gap: 0px;
+    }
+
+    .portfolio-overlay-container h1 {
+        font-size: 76px;
+    }
+
+    .hover-image-container {
+        display: none;
+    }
+
+    .Join-screenshot {
+        width: 100%;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        margin: 16px;
+        gap: 64px;
+    }
+
+    .contact-title {
+        font-size: 48px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    .contact-left h3 {
+        font-size: 18px;
+    }
+
+    .contact-right h3 {
+        font-size: 24px;
+        padding-top: 32px;
+        padding-bottom: 16px;
+        padding-left: 16px;
+    }
+
+    .contact-input {
+        padding-left: 16px;
+    }
+
+    .feedback-card-text {
+        padding: 60px 16px 0px 16px;
+    }
+
+    .feedback-footer {
+        gap: 20px;
+        padding: 0px 16px 0px 16px;
+    }
+
+    .feedback-line {
+        width: 30%;
+    }
+
+    .splide__slide {
+        height: auto;
+    }
+
+    .quote-icon {
+        top: -26px;
+        left: 0px;
+        width: 80px;
+    }
+
+    .feedback-title {
+        margin-left: 16px;
+    }
+
+    .feedback-wrapper::before,
+    .feedback-wrapper::after {
+        content: "";
+        display: none;
+
+    }
+
+    .colleagues-content {
+        margin-bottom: 40px;
+    }
+
+    .portfolio-overlay-top {
+        align-items: unset;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    .tech-icons {
+        padding-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    .Join-screenshot {
+        max-width: fit-content
+    }
+
+    .project-link-container {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero-content {
+        gap: 15px;
+    }
+
+    .hero-name {
+        font-size: 44px;
+        white-space: normal;
+    }
+
+    .hero-content p {
+        font-size: 24px;
+        margin: 0px 20px 0px 20px;
+    }
+
+    .hero-buttons {
+        margin-top: 0px;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .technologie-button {
+        padding-top: 20px;
+    }
+
+    .ticker {
+        padding: 10px 10px;
+        bottom: 35px;
+    }
+
+    .ticker-track {
+        gap: 20px;
+        font-size: 20px;
+    }
+
+    .textbox-title {
+        font-size: 38px;
+        margin: 0px 0px 16px 0px;
+    }
+
+    .textbox-header-text {
+        font-size: 18px;
+    }
+
+    .feedback-card-text {
+        padding: 24px;
+    }
+
+    .quote-icon {
+        top: -26px;
+        left: 0px;
+        width: 60px;
+    }
+
+    .portfolio-overlay-container h1 {
+        font-size: 60px;
+        line-height: 0.7;
+    }
+
+    .portfolio-overlay-container h2 {
+        font-size: 54px;
+        line-height: 1.2;
+    }
+
+    .portfolio-overlay-container h3 {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    .portfolio-overlay {
+        overflow-y: auto;
+        padding: 78px 18px 0px;
+        width: calc(100% - 0px);
+    }
+
+    .portfolio-overlay-bottom {
+        padding-bottom: 30px;
+        padding-top: 20px;
+    }
+
+    .project-link-container {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .project-link {
+        padding: 12px 22px;
+        gap: 6px;
+    }
+
+    .close-icon {
+        top: 16px;
+        right: 16px;
+    }
+
+    .hero-buttons a {
+        min-width: 130px;
+    }
+}
