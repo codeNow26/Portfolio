@@ -64,7 +64,7 @@
 
     .logo-img {
         position: absolute;
-        left: 0px;
+            left: 7px;
     }
 
     .mail_mobile {
@@ -341,8 +341,29 @@
 
 @media (max-width: 600px) {
 
+
+    .hero-buttons-container {
+        margin-bottom: 120px;
+    }
+
+        .hero-social {
+        top: 64%;
+    }
+
     .hero-content {
         gap: 15px;
+    }
+
+    .scroll-indicator {
+    bottom: 54px;
+}
+
+.profile-photo-background {
+        height: 95%;
+        transform: translate(8%, -4%);
+        width: 84%;
+        left: -3%;
+        top: 12%;
     }
 
     .hero-name {
@@ -367,7 +388,7 @@
 
     .ticker {
         padding: 10px 10px;
-        bottom: 35px;
+        bottom: 80px;
     }
 
     .ticker-track {
@@ -437,5 +458,9 @@
 
     .hero-buttons a {
         min-width: 130px;
+    }
+
+      .mobile-break-title {
+        display: inline;
     }
 }

@@ -99,9 +99,8 @@ header {
 }
 
 .logo-img {
-    width: 111px;
-    height: 80px;
-    margin-right: -27px;
+    width: 80px;
+    height: 70px;
 }
 
 .name {
@@ -160,7 +159,7 @@ h1 {
     padding: 12px 28px;
     display: inline-block;
     overflow: hidden;
-                 text-align: center;
+    text-align: center;
 }
 
 .btn-wrapper {
@@ -553,7 +552,7 @@ h1 {
     display: flex;
     justify-content: center;
     position: relative;
-   background: radial-gradient(circle at left, rgba(8, 70, 59, 0.4) 5%, rgba(8, 70, 59, 0.5) 10%, transparent 2%) #1C1C1C;
+    background: radial-gradient(circle at left, rgba(8, 70, 59, 0.4) 5%, rgba(8, 70, 59, 0.5) 10%, transparent 20%) #1C1C1C;
 }
 
 .technologies-container {
@@ -575,6 +574,16 @@ h1 {
     flex: 1;
 }
 
+.skillset-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    gap: 8px;
+    color: white;
+    text-align: center;
+}
+
 .skillset-icons {
     display: flex;
     flex-wrap: wrap;
@@ -584,8 +593,8 @@ h1 {
 }
 
 .skillset-icons img {
-    width: 104px;
-    height: 116px;
+    width: 60px;
+    height: 60px;
 }
 
 .skillset-icon:hover {
@@ -682,6 +691,52 @@ h1 {
 
 .project-title {
     margin: 0;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid #32d6c9;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #32d6c9;
+    background: rgba(50, 214, 201, 0.08);
+    letter-spacing: 0.5px;
+}
+
+.project-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #32d6c9;
+
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .portfolio-text {
@@ -1347,6 +1402,11 @@ h1 {
     cursor: pointer;
 }
 
+.contact-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .status-container {
     position: relative;
     min-height: 30px;
@@ -1474,6 +1534,15 @@ h1 {
     opacity: 0;
 }
 
+#invalid-sign_up-email {
+    opacity: 0;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+        margin-bottom: -22px;
+}
+
 .submit {
     border-top: 1px solid #ff4d4d;
     border-bottom: 1px solid #ff4d4d !important;
@@ -1481,6 +1550,10 @@ h1 {
 }
 
 .mobile-break {
+    display: none;
+}
+
+.mobile-break-title {
     display: none;
 }
 
@@ -1520,4 +1593,3 @@ h1 {
 .mail-icon-hover {
     display: none;
 }
-

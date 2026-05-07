@@ -1,35 +1,22 @@
-const glow = document.querySelector('.cursor-glow');
 let currentLanguage = localStorage.getItem("lang") || "en";
-
-emailjs.init("mDZPlBNGP4szLcUBH");
-
-window.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-});
-
 let mouseX = 0;
 let mouseY = 0;
 let currentX = 0;
 let currentY = 0;
+let currentProjectIndex = 0;
 
-window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
+const projectOrder = ["join", "el_pollo_loco", "bubble"];
 
-/** Animates cursor glow */
-function animate() {
-    currentX += (mouseX - currentX) * 0.7;
-    currentY += (mouseY - currentY) * 0.7;
+const glow = document.querySelector('.cursor-glow');
+const overlay = document.querySelector(".mobile-overlay-container");
+const menuIcon = document.getElementById("mobile-menu-icon");
 
-    glow.style.left = currentX + 'px';
-    glow.style.top = currentY + 'px';
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
 
-    requestAnimationFrame(animate);
-}
-
-animate();
+const navLeft = document.getElementById("nav-left");
+const mobileOverlay = document.getElementById("mobile-overlay");
+const navbarContainer = document.querySelector(".navbar-container");
 
 const projects = {
     join: {
@@ -49,6 +36,8 @@ const projects = {
     }
 };
 
+emailjs.init("mDZPlBNGP4szLcUBH");
+
 const splide = new Splide('.splide', {
     type: 'loop',
     arrows: false,
@@ -66,10 +55,13 @@ const splide = new Splide('.splide', {
     }
 });
 
+animate();
 splide.mount();
 
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
+window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
 
 nextBtn.addEventListener('click', () => {
     splide.go('>');
@@ -79,9 +71,36 @@ prevBtn.addEventListener('click', () => {
     splide.go('<');
 });
 
+document.getElementById("privacy-check")
+    .addEventListener("change", validateForm);
+
+document.getElementById("next-project").addEventListener("click", nextProject);
+
+menuIcon.addEventListener("click", menuToggle);
+
+overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) {
+        overlay.classList.remove("show");
+    }
+});
+
 document.querySelectorAll(".contact-input").forEach(input => {
     setupValidation(input);
 });
+
+window.addEventListener("resize", handleNavPosition);
+window.addEventListener("load", handleNavPosition);
+
+/** Animates cursor glow */
+function animate() {
+    currentX += (mouseX - currentX) * 0.7;
+    currentY += (mouseY - currentY) * 0.7;
+
+    glow.style.left = currentX + 'px';
+    glow.style.top = currentY + 'px';
+
+    requestAnimationFrame(animate);
+}
 
 /**
  * Sets up validation for input
@@ -90,6 +109,8 @@ document.querySelectorAll(".contact-input").forEach(input => {
 function setupValidation(input) {
     const container = input.closest(".contact-field");
     const error = container.querySelector(".error-message");
+    const invalidError = document.getElementById("invalid-sign_up-email");
+
     let touched = false;
 
     input.addEventListener("focus", () => {
@@ -100,15 +121,46 @@ function setupValidation(input) {
         if (touched) validate();
     });
 
-    input.addEventListener("input", validate);
+    input.addEventListener("input", () => {
+
+        const value = input.value.trim();
+
+        if (input.type === "email") {
+
+            const isValidEmail =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+            if (value && isValidEmail) {
+                invalidError.classList.remove("opacity-1");
+            }
+        }
+
+        if (value) {
+            error?.classList.remove("opacity-1");
+        }
+
+        validateForm();
+    });
 
     function validate() {
+
         const value = input.value.trim();
 
         let isValid = value.length > 0;
 
         if (input.type === "email") {
-            isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+            isValid =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+            if (value && !isValid) {
+
+                invalidError.classList.add("opacity-1");
+
+            } else {
+
+                invalidError.classList.remove("opacity-1");
+            }
         }
 
         if (isValid) {
@@ -120,13 +172,20 @@ function setupValidation(input) {
         }
 
         if (!value && touched) {
+
             container.classList.add("submit");
             error?.classList.add("opacity-1");
             input.placeholder = "";
+
         } else {
+
             container.classList.remove("submit");
-            error?.classList.remove("opacity-1");
+
+            if (input.type !== "email") {
+                error?.classList.remove("opacity-1");
+            }
         }
+
         validateForm();
 
         return isValid;
@@ -135,7 +194,8 @@ function setupValidation(input) {
 
 function validateForm() {
     const inputs = document.querySelectorAll(".contact-input");
-    button = document.getElementById("contact-submit");
+    const button = document.getElementById("contact-submit");
+    const checkbox = document.getElementById("privacy-check");
     let formValid = true;
 
     inputs.forEach(input => {
@@ -144,13 +204,64 @@ function validateForm() {
         }
     });
 
-    button.disabled = !formValid;
+    const allValid = formValid && checkbox.checked;
+
+    button.disabled = !allValid
 }
 
-//Weitermachen hier, button braucht feedback wann er enabled oder disabled ist
+/**
+ * Sends email via EmailJS
+ * @param {Event} event
+ */
+function sendMail(event) {
+    event.preventDefault();
+    const checkbox = document.getElementById("privacy-check");
+    const statusSuccess = document.getElementById("form-status");
+    const statusError = document.getElementById("privacy-error");
+    const btn = document.querySelector('button[type="submit"]');
+    statusSuccess.classList.remove("active");
+    statusError.classList.remove("active");
 
-const projectOrder = ["join", "el_pollo_loco", "bubble"];
-let currentProjectIndex = 0;
+    if (!checkbox.checked) {
+        statusError.innerText = "Please accept the privacy policy";
+        statusError.style.color = "#EC7B7B";
+        statusError.classList.add("active");
+        return;
+    }
+
+    const name = document.querySelector('[name="name"]').value;
+    const email = document.querySelector('[name="email"]').value;
+    const message = document.querySelector('[name="message"]').value;
+
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+
+    emailjs.send("service_a5hs47c", "template_6s3rwh8", {
+        name: name,
+        email: email,
+        message: message
+    })
+        .then(() => {
+            statusSuccess.innerText = "Message sent successfully";
+            statusSuccess.style.color = "#3DCFB6";
+            statusSuccess.classList.add("active");
+
+            document.querySelector("form").reset();
+
+            btn.disabled = false;
+            btn.innerText = "Say Hello ;)";
+        })
+        .catch((error) => {
+            console.error(error);
+
+            statusError.innerText = "Something went wrong. Try again.";
+            statusError.style.color = "#EC7B7B";
+            statusError.classList.add("active");
+
+            btn.disabled = false;
+            btn.innerText = "Try again";
+        });
+}
 
 /**
  * Opens project overlay (new version)
@@ -243,8 +354,6 @@ function updateTech(techArray = []) {
     });
 }
 
-document.getElementById("next-project").addEventListener("click", nextProject);
-
 /** Goes to next project */
 function nextProject() {
     currentProjectIndex++;
@@ -278,25 +387,10 @@ function formatProjectName(name) {
         .replace(/\b\w/g, char => char.toUpperCase());
 }
 
-const overlay = document.querySelector(".mobile-overlay-container");
-const menuIcon = document.getElementById("mobile-menu-icon");
-
-menuIcon.addEventListener("click", menuToggle);
-
 /** Toggles mobile menu */
 function menuToggle() {
     overlay.classList.toggle("show");
 }
-
-overlay.addEventListener("click", (event) => {
-    if (event.target === overlay) {
-        overlay.classList.remove("show");
-    }
-});
-
-const navLeft = document.getElementById("nav-left");
-const mobileOverlay = document.getElementById("mobile-overlay");
-const navbarContainer = document.querySelector(".navbar-container");
 
 /** Handles nav repositioning */
 function handleNavPosition() {
@@ -307,59 +401,3 @@ function handleNavPosition() {
     }
 }
 
-window.addEventListener("resize", handleNavPosition);
-window.addEventListener("load", handleNavPosition);
-
-/**
- * Sends email via EmailJS
- * @param {Event} event
- */
-function sendMail(event) {
-    event.preventDefault();
-    const checkbox = document.getElementById("privacy-check");
-    const statusSuccess = document.getElementById("form-status");
-    const statusError = document.getElementById("privacy-error");
-    const btn = document.querySelector('button[type="submit"]');
-    statusSuccess.classList.remove("active");
-    statusError.classList.remove("active");
-
-    if (!checkbox.checked) {
-        statusError.innerText = "Please accept the privacy policy";
-        statusError.style.color = "#EC7B7B";
-        statusError.classList.add("active");
-        return;
-    }
-
-    const name = document.querySelector('[name="name"]').value;
-    const email = document.querySelector('[name="email"]').value;
-    const message = document.querySelector('[name="message"]').value;
-
-    btn.disabled = true;
-    btn.innerText = "Sending...";
-
-    emailjs.send("service_a5hs47c", "template_6s3rwh8", {
-        name: name,
-        email: email,
-        message: message
-    })
-        .then(() => {
-            statusSuccess.innerText = "Message sent successfully";
-            statusSuccess.style.color = "#3DCFB6";
-            statusSuccess.classList.add("active");
-
-            document.querySelector("form").reset();
-
-            btn.disabled = false;
-            btn.innerText = "Say Hello ;)";
-        })
-        .catch((error) => {
-            console.error(error);
-
-            statusError.innerText = "Something went wrong. Try again.";
-            statusError.style.color = "#EC7B7B";
-            statusError.classList.add("active");
-
-            btn.disabled = false;
-            btn.innerText = "Try again";
-        });
-}

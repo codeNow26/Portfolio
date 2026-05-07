@@ -11,28 +11,28 @@ const translations = {
             contact: "Contact me",
             ticker_remote: "Available for remote work",
             ticker_frontend: "Frontend Developer",
-            ticker_town: "based in Hoyerswerda",
+            ticker_town: "Based in Hoyerswerda",
             ticker_work: "Open to work",
         },
         about: {
             header: "Who I Am",
             title: "About me",
-            description: "Hey there, I'm Philipp! I got into coding because I wanted to build things myself instead of just consuming them. I enjoy turning ideas into clean, functional interfaces and am always eager to learn new technologies and improve my skills.",
+            description: "Hey, I’m Philipp. I develop web applications and enjoy refining interfaces and details until everything works smoothly and feels right. That process is what I enjoy the most.",
             remote: "I’m open to remote, hybrid, or on-site work - whatever fits best for the project and the team.",
-            skills: "I enjoy learning new technologies and constantly improving my skills. I’m always open to new ideas, tools, and better ways of doing things.",
-            solutions: "I like to break problems down and find simple, efficient solutions. I stay persistent, think creatively, and focus on building clean and maintainable code.",
+            skills: "I like challenges that require real problem-solving and where the solution isn’t immediately obvious.",
+            solutions: "I enjoy learning new technologies and trying out new things. For me, it’s not about following every trend, but about finding tools that actually make sense.",
         },
         technologies: {
             header: "Technologies",
             skillset: "Skill set",
-            description: "I build things that actually work. Clean, structured, without unnecessary complexity.",
+            description: "I like to work in a structured way and value solutions that are cleanly built and work reliably in real-world use.",
             skill_text: "You need <span class=\"skill-span\">another skill?</span>",
             contact: "Feel free to contact me. I look forward to <br> expanding on my previous knowledge",
             button: "Let's Talk",
         },
         portfolio: {
             title: "Featured Projects",
-            description: "Explore a selection of my work here - interact with projects to see my skills in action",
+            description: "Here you’ll get an insight into some of my projects and the way I work",
             about: "what is this project about?",
             projects: {
                 join: {
@@ -40,7 +40,7 @@ const translations = {
                     number: "01"
                 },
                 el_pollo_loco: {
-                    description: "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight agains the crazy hen",
+                    description: "2D platformer game built using object-oriented programming. Help Pepe collect coins and tabasco salsa to defeat the crazy chickens.",
                     number: "02"
                 }
             }
@@ -58,9 +58,14 @@ const translations = {
             email: "What's your email?",
             email_placeholder: "youremail@email.com",
             help: "How can I help you?",
-            help_placeholder: "Hello Lukas, i am interested in...",
+            help_placeholder: "Hello Lukas, I am interested in...",
             privacy_policy: "I've read the <span>privacy policy</span> and agree to the processing of my data as outlined",
             button: "Say Hello ;)",
+            name_required: "Oops! it seems your name is missing",
+            email_required: "Hoppla! your email is required",
+            help_required: "What do you need to develop?",
+            privacy_error: "Please accept the privacy policy",
+             email_invalid: "Please enter a valid email address",
         }
 
     },
@@ -82,22 +87,22 @@ const translations = {
         about: {
             header: "Wer ich bin",
             title: "Über mich",
-            description: "Hallo, ich bin Philipp! Ich habe mit dem Programmieren angefangen, weil ich Dinge selbst bauen wollte, anstatt sie nur zu konsumieren. Ich genieße es, Ideen in saubere, funktionale Schnittstellen umzusetzen und bin immer bestrebt, neue Technologien zu lernen und meine Fähigkeiten zu verbessern.",
+            description: "Hey, ich bin Philipp. Ich entwickle Webanwendungen und feile gerne an Oberflächen und Details, bis alles sauber funktioniert und sich richtig anfühlt. Genau dieser Prozess macht mir am meisten Spaß.",
             remote: "Ich bin offen für Remote-, Hybrid- oder On-Site-Arbeit - je nachdem, was am besten für das Projekt und das Team passt.",
-            skills: "Ich genieße es, neue Technologien zu lernen und meine Fähigkeiten ständig zu verbessern. Ich bin immer offen für neue Ideen, Tools und bessere Möglichkeiten, Dinge zu tun.",
-            solutions: "Ich mag es, Probleme zu zerlegen und einfache, effiziente Lösungen zu finden. Ich bleibe hartnäckig, denke kreativ und konzentriere mich darauf, sauberen und wartbaren Code zu schreiben.",
+            skills: "Ich arbeite mich gerne in neue Technologien ein und probiere ständig neue Dinge aus. Dabei geht’s mir nicht darum, jedem Trend hinterherzulaufen, sondern Werkzeuge zu finden, die wirklich sinnvoll sind.",
+            solutions: "Ich mag Herausforderungen, bei denen man sich erst reindenken muss und die Lösung nicht direkt offensichtlich ist.",
         },
         technologies: {
             header: "Technologien",
             skillset: "Fähigkeiten",
             description: "Ich baue Dinge, die tatsächlich funktionieren. Sauber, strukturiert, ohne unnötige Komplexität.",
-            skill_text: "Du suchst <span class=\"skill-span\">eine bestimmte Fähigkeit?</span>",
-            contact: "Zögere nicht, mich zu kontaktieren. Ich freue mich darauf, mein bisheriges Wissen zu erweitern",
+            skill_text: "Nicht die passende <span class=\"skill-span\">Technologie</span> dabei?",
+            contact: "Melde dich gerne bei mir. Ich freue mich darauf, mein bisheriges Wissen weiter auszubauen.",
             button: "Lass uns reden",
         },
         portfolio: {
             title: "Ausgewählte Projekte",
-            description: "Entdecke eine Auswahl meiner Arbeiten hier - interagiere mit Projekten, um meine Fähigkeiten in Aktion zu sehen",
+            description: "Hier bekommst du einen Einblick in einige meiner Projekte und Arbeitsweisen",
             projects: {
                 about: "Worum geht es bei diesem Projekt?",
                 join: {
@@ -105,7 +110,7 @@ const translations = {
                     number: "01"
                 },
                 el_pollo_loco: {
-                    description: "Sprung-, Lauf- und Wurfspiel basierend auf einem objektorientierten Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen",
+                    description: "Ein 2D Jump-and-Run-Spiel mit objektorientiertem Ansatz. Hilf Pepe dabei, Münzen und Tabasco-Salsa zu sammeln, um sich gegen die verrückten Hühner durchzusetzen.",
                     number: "02"
                 }
             }
@@ -115,17 +120,22 @@ const translations = {
         },
         contact: {
             contact_me: "Kontaktiere mich",
-            title: "Lass uns<br>zusammen arbeiten",
-            problem: "Gibt es ein Problem zu lösen?",
-            description: "Ich bin immer offen für neue Möglichkeiten und Kooperationen, also zögere nicht, dich zu melden. Ich bin besonders an Rollen interessiert, in denen ich sauberen, strukturierten Code mit durchdachtem Design kombinieren kann, um echten Mehrwert für Benutzer zu schaffen.<br><br>Du brauchst einen Frontend-Entwickler? <span class=\"contact-description-span\">Lass uns reden!</span>",
+          title: "Lass uns zusammen<span class='mobile-break-title'><br></span>arbeiten",
+            problem: "Du hast eine Idee oder ein Projekt?",
+            description: "Ich bin offen für neue Projekte und spannende Zusammenarbeit. Am meisten Spaß machen mir Aufgaben, bei denen man nicht nur etwas Schönes baut, sondern auch etwas, das sich gut benutzen lässt.<br><br>Du brauchst einen Frontend-Entwickler? <span class=\"contact-description-span\">Lass uns reden!</span>",
             name: "Wie ist dein Name?",
             name_placeholder: "Dein Name hier",
             email: "Wie ist deine E-Mail?",
             email_placeholder: "youremail@email.com",
             help: "Wie kann ich dir helfen?",
             help_placeholder: "Hallo Lukas, ich interessiere mich für...",
-            privacy_policy: "Ich habe die <span>Datenschutzrichtlinie</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu",
+            privacy_policy: "Ich habe die <span>Datenschutzerklärung</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu",
             button: "Sag Hallo ;)",
+            name_required: "Hoppla! Es scheint, als ob dein Name fehlt",
+            email_required: "Hoppla! Deine E-Mail ist erforderlich",
+            help_required: "Was möchtest du entwickeln?",
+            privacy_error: "Bitte akzeptiere die Datenschutzerklärung",
+                email_invalid: "Bitte gib eine gültige E-Mail-Adresse ein",
         }
     },
 }
