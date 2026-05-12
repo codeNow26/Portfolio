@@ -1,0 +1,102 @@
+.about-me {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #1C1C1C;
+}
+
+.about-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 112px 0px 112px;
+    gap: 60px;
+}
+
+.profile-photo {
+    max-width: 480px;
+    width: 100%;
+    border-radius: 30px;
+    height: auto;
+    position: relative;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.profile-photo-background {
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+    inset: 0;
+    transform: translate(-5%, -5%);
+    width: 100%;
+}
+
+.about-right {
+    flex: 1;
+    color: white;
+    padding-top: 130px;
+}
+
+.about-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.textbox-header-text {
+    font-family: "Karla", sans-serif;
+    font-weight: 700;
+    padding-bottom: 20px;
+    color: #3DCFB6;
+    font-size: 24px;
+}
+
+.textbox-text-container {
+    width: 100%;
+    border: 1px solid rgba(61, 207, 182, 1);
+    border-radius: 30px;
+    background: rgba(61, 207, 182, 0.1);
+    padding: 30px;
+}
+
+.textbox-title {
+    color: #3DCFB6;
+    font-size: 64px;
+    margin: 0px 0px 32px 0px;
+}
+
+.textbox-text {
+    font-size: 18px;
+    line-height: 1.4;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    color: white;
+}
+
+.about-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-family: "Karla", sans-serif;
+}
+
+.about-item-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 20px;
+}
+
+.textbox-icon {
+    width: 32px;
+    height: 32px;
+}

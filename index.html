@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Philipp Nowotnick</title>
+    <link rel="icon" type="image/png" href="./img/icons/tryyyy.png">
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./responsive.css" />
+    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./hero.css" />
+    <link rel="stylesheet" href="./about.css" />
+    <link rel="stylesheet" href="./technologies.css" />
+    <link rel="stylesheet" href="./portfolio.css" />
+    <link rel="stylesheet" href="./feedback.css" />
+    <link rel="stylesheet" href="./contact.css" />
+    <link rel="stylesheet" href="./footer.css" />
+    <link rel="stylesheet" href="./responsive-above-600.css" />
+    <link rel="stylesheet" href="./responsive-below-600.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
@@ -41,24 +51,26 @@
 
                 <nav class="nav-links">
                     <a class="nav-text" data-i18n="nav.about" href="#about">About me</a>
-                    <a class="nav-text" data-i18n="nav.skills" href="#">Skills</a>
+                    <a class="nav-text" data-i18n="nav.skills" href="#technologies">Skills</a>
                     <a class="nav-text" data-i18n="nav.projects" href="#portfolio">Projects</a>
                 </nav>
             </div>
-            <div class="logo">
+            <a href="./index.html" class="logo">
                 <img class="logo-img" src="./img/icons/tryyyy.png">
                 <span class="name">Philipp<br> Nowotnick</span>
-            </div>
+            </a>
         </div>
 
 
     </header>
     <main>
-        <section class="hero snap-section">
+        <section class="hero full-height">
             <div class="hero-container">
                 <div class="scroll-indicator">
                     <a href="#about">
-                        <img class="scroll-indicator-arrow" src="./img/icons/Vector8.png">
+                        <div class="scroll-indicator-mouse">
+                            <img class="scroll-indicator-arrow" src="./img/icons/Vector8.png">
+                        </div>
                         <div class="scroll-indicator-vector"></div>
                     </a>
                 </div>
@@ -134,7 +146,7 @@
             </div>
         </section>
 
-        <section class="about-me snap-section">
+        <section class="about-me section-spacing">
             <div id="about" class="about-container">
                 <div class="about-left">
                     <div class="profile-image-wrapper">
@@ -184,8 +196,7 @@
             </div>
         </section>
 
-        <section class="technologies snap-section">
-
+        <section id="technologies" class="technologies section-spacing">
             <div class="technologies-container">
                 <div class="technologies-left">
 
@@ -201,7 +212,8 @@
                         </p>
                         <p data-i18n="technologies.skill_text" class="skill-text">You need <span
                                 class="skill-span">another skill?</span></p>
-                        <p data-i18n="technologies.contact" class="textbox-text">Feel free to contact me. I look forward
+                        <p data-i18n="technologies.contact" class="textbox-text">Feel free to contact me. I look
+                            forward
                             to <br> expanding on my previous
                             knowledge</p>
                         <div class="hero-buttons technologie-button">
@@ -270,7 +282,7 @@
                 </div>
         </section>
 
-        <section id="portfolio" class="snap-section portfolio">
+        <section id="portfolio" class="portfolio section-spacing">
             <div class="portfolio-container">
                 <p class="textbox-header-text">Portfolio</p>
                 <h2 data-i18n="portfolio.title" class="textbox-title project-title">Featured Projects</h2>
@@ -287,8 +299,8 @@
                                     <div class="portfolio-overlay-left">
                                         <h1 id="overlay-number">01</h1>
                                         <h2 id="overlay-title">Join</h2>
-                                        <h3 id="overlay-about">What is this project about?</h3>
-                                        <p id="overlay-description">Task manager inspired by the Kanban
+                                        <h3 data-i18n="portfolio.projects.about" id="overlay-about">What is this project about?</h3>
+                                        <p  id="overlay-description">Task manager inspired by the Kanban
                                             System. Create and organize tasks using drag
                                             and
                                             drop
@@ -322,8 +334,9 @@
                                     </div>
                                 </div>
                                 <div class="portfolio-overlay-bottom">
-                                    <div id="next-project" class="next-project-container">
-                                        <div class="next-project">Next project
+                                    <div  id="next-project" class="next-project-container">
+                                        <div class="next-project">
+                                            <span data-i18n="portfolio.next" >Next project</span>
                                             <img src="./img/icons/arrow_forward.svg">
                                         </div>
                                     </div>
@@ -349,7 +362,8 @@
                             </span>
                         </div>
 
-                        <div id="el_pollo_loco" onclick="openProjectsOverlay('el_pollo_loco')" class="project">
+                        <div id="el_pollo_loco" onclick="openProjectsOverlay('el_pollo_loco')"
+                            class="project border-bottom">
                             <span class="project-name">El Pollo Loco</span>
                             <span class="tech">
                                 <span>HTML</span>
@@ -358,21 +372,7 @@
                             </span>
                         </div>
 
-                        <div id="da_bubble" class="project">
-                            <div class="project-title-row">
-                                <span class="project-name">DA Bubble</span>
 
-                                <span class="project-status">
-                                    <span class="status-dot"></span>
-                                    IN PROGRESS
-                                </span>
-                            </div>
-                            <span class="tech">
-                                <span>Angular</span>
-                                <span>Firebase</span>
-                                <span>TypeScript</span>
-                            </span>
-                        </div>
                     </div>
 
                     <div class="hover-image-container">
@@ -390,7 +390,7 @@
                 </div>
         </section>
 
-        <section class="snap-section colleagues">
+        <section class="colleagues section-spacing">
             <div class="colleagues-content">
                 <h2 data-i18n="feedback.title" class="feedback-title">
                     What my colleagues say about me
@@ -405,7 +405,7 @@
                                 <li class="splide__slide">
                                     <div class="feedback-card">
                                         <img class="quote-icon" src="./img/icons/quotes.png">
-                                        <p class="feedback-card-text">
+                                        <p data-i18n="feedback.quote1" class="feedback-card-text">
                                             "Philipp ist wirklich ein kreativer Mensch. Er findet stets die modernsten
                                             Lösungen für die komplexesten Probleme. Es ist eine echte Freude, mit ihm zu
                                             arbeiten, denn man weiß, dass man sich auf ihn verlassen kann, wenn es
@@ -421,12 +421,14 @@
                                 <li class="splide__slide">
                                     <div class="feedback-card">
                                         <img class="quote-icon" src="./img/icons/quotes.png">
-                                        <p class="feedback-card-text">
-                                            Platzhalter
+                                        <p data-i18n="feedback.quote2" class="feedback-card-text">
+                                            Mit Philipp zusammenzuarbeiten war immer angenehm und unkompliziert. Er
+                                            bringt viele kreative Ideen mit, arbeitet zuverlässig und verliert auch bei
+                                            kniffligen Aufgaben nie den Überblick.
                                         </p>
                                         <div class="feedback-footer">
                                             <div class="feedback-line"></div>
-                                            <span class="feedback-author">Max Mustermann – Team Partner</span>
+                                            <span class="feedback-author">Anja Schumann – Team Partner</span>
                                         </div>
                                     </div>
                                 </li>
@@ -434,12 +436,14 @@
                                 <li class="splide__slide">
                                     <div class="feedback-card">
                                         <img class="quote-icon" src="./img/icons/quotes.png">
-                                        <p class="feedback-card-text">
-                                            Platzhalter
+                                        <p data-i18n="feedback.quote3" class="feedback-card-text">
+                                            Philipp ist jemand, auf den man sich jederzeit verlassen kann. Er arbeitet
+                                            mit viel Engagement, denkt mit und findet oft Lösungen, auf die man selbst
+                                            nicht sofort gekommen wäre.
                                         </p>
                                         <div class="feedback-footer">
                                             <div class="feedback-line"></div>
-                                            <span class="feedback-author">Max Mustermann – Team Partner</span>
+                                            <span class="feedback-author">Janet B. – Team Partner</span>
                                         </div>
                                     </div>
                                 </li>
@@ -450,7 +454,11 @@
 
                     <div class="slide-menu">
                         <img class="slide-arrow prev" src="./img/icons/arrow-left.png">
-                        <div class="slide-dots"></div>
+                        <div class="slide-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
                         <img class="slide-arrow next" src="./img/icons/arrow-right.png">
                     </div>
 
@@ -458,7 +466,7 @@
             </div>
         </section>
 
-        <section id="contact" class="snap-section contact">
+        <section id="contact" class="contact section-spacing">
             <div class="contact-container">
                 <div class="contact-left">
                     <p data-i18n="contact.contact_me">Contact me</p>
@@ -479,22 +487,26 @@
                             <h3 data-i18n="contact.name">What's your name?</h3>
                             <input id="name_sign_up" class="contact-input" data-i18n="contact.name_placeholder"
                                 placeholder="Your name goes here" name="name">
-                            <p data-i18n="contact.name_required" id="required-sign_up-name" class="error-message">Oops! it seems your name is missing</p>
+                            <p data-i18n="contact.name_required" id="required-sign_up-name" class="error-message">Oops!
+                                it seems your name is missing</p>
                         </label>
 
                         <label id="email-field" class="contact-field">
                             <h3 data-i18n="contact.email">What's your email?</h3>
                             <input id="email_sign_up" class="contact-input" data-i18n="contact.email_placeholder"
                                 type="email" placeholder="youremail@email.com" name="email">
-                            <p data-i18n="contact.email_required" id="required-sign_up-email" class="error-message">Hoppla! your email is required</p>
-                            <p data-i18n="contact.email_invalid" id="invalid-sign_up-email" class="error-message">Please enter a valid email address</p>
+                            <p data-i18n="contact.email_required" id="required-sign_up-email" class="error-message">
+                                Hoppla! your email is required</p>
+                            <p data-i18n="contact.email_invalid" id="invalid-sign_up-email" class="error-message">Please
+                                enter a valid email address</p>
                         </label>
 
                         <label id="help-field" class="contact-field help-field">
                             <h3 data-i18n="contact.help">How can I help you?</h3>
                             <input id="help_sign_up" class="contact-input" data-i18n="contact.help_placeholder"
                                 placeholder="Hello Lukas, I am interested in..." name="message">
-                            <p data-i18n="contact.help_required" id="required-sign_up-help" class="error-message">What do you need to develop?</p>
+                            <p data-i18n="contact.help_required" id="required-sign_up-help" class="error-message">What
+                                do you need to develop?</p>
                         </label>
                         <div class="contact-checkbox">
                             <label class="custom-checkbox">
@@ -509,7 +521,8 @@
                             <p data-i18n="contact.privacy_error" id="privacy-error" class="form-status">
                                 Please accept the privacy policy
                             </p>
-                            <p id="form-status" class="form-status">Message sent successfully</p>
+                            <p data-i18n="contact.form_status" id="form-status" class="form-status">Message sent
+                                successfully</p>
                         </div>
                         <div class="contact-button-container">
                             <button id="contact-submit" class="contact-button" type="submit" disabled>
@@ -520,47 +533,62 @@
                         </div>
                     </form>
                 </div>
-                <div class="footer">
-                    <div class="footer-container">
+                        </section>
+              <footer class="footer">
+    <div class="footer-container">
 
-                        <div class="footer-left">
-                            <div class="logo">
-                                <img class="logo-img" src="./img/icons/tryyyy.png">
-                                <span class="name">Philipp<br> Nowotnick</span>
-                            </div>
-                            <p>Web developer</p>
-                            <p>Hoyerswerda Germany</p>
-                        </div>
+        <div class="footer-left">
+            <div class="logo">
+                <img class="logo-img" src="./img/icons/tryyyy.png">
+                <span class="name">Philipp<br> Nowotnick</span>
+            </div>
+            <p>Web developer</p>
+            <p>Hoyerswerda Germany</p>
+        </div>
 
-                        <div class="footer-middle">
-                            <p>© Philipp Nowotnick 2026</p>
-                        </div>
+        <div class="footer-middle">
+            <p>© Philipp Nowotnick 2026</p>
+        </div>
 
-                        <div class="footer-right">
-                            <div class="github-container">
-                                <a class="footer-text" target="_blank" href="https://github.com/codeNow26">
-                                    Github
-                                </a>
-                            </div>
+        <div class="footer-right">
+            <div class="github-container">
+                <a class="footer-text" target="_blank" href="https://github.com/codeNow26">
+                    Github
+                </a>
+            </div>
 
-                            <div class="linkedIn-container">
-                                <a class="footer-text" target="_blank"
-                                    href="https://www.linkedin.com/in/philipp-nowotnick-674611402/">
-                                    LinkedIn
-                                </a>
-                            </div>
-                            <div>
-                                <a class="footer-email footer-text"
-                                    href="mailto:contact@philippnowotnick@hotmail.de">Email</a>
-                            </div>
-                            <div>
-                                <a class="footer-text" target="_blank" href="./legal-notice.html">Legal Notice</a>
-                            </div>
-                        </div>
-        </section>
-    </main>
-    <script src="./script.js"></script>
-    <script src="./translations.js"></script>
+            <div class="linked-container">
+                <a class="footer-text" target="_blank"
+                   href="https://www.linkedin.com/in/philipp-nowotnick-674611402/">
+                    LinkedIn
+                </a>
+            </div>
+
+            <div>
+                <a class="footer-email footer-text"
+                   href="mailto:contact@philippnowotnick@hotmail.de">
+                    Email
+                </a>
+            </div>
+
+            <div>
+                <a id="legal-notice-link"
+                   class="footer-text"
+                   target="_blank"
+                   href="./legal-notice.html">
+                    Legal Notice
+                </a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+</main>
+
+<script src="./script.js"></script>
+<script src="header.js"></script>
+<script src="./form.js"></script>
+<script src="./translations.js"></script>
 </body>
-
 </html>

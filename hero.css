@@ -1,0 +1,249 @@
+.hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(1deg, #1C1C1C, #08463B);
+}
+
+.hero-content p {
+    font-family: "Fira Code", monospace;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.hero-container {
+    width: 100%;
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.hero-buttons {
+    display: inline-flex;
+    justify-content: center;
+    gap: 48px;
+    font-family: "Karla", sans-serif;
+}
+
+.hero-buttons-container {
+    margin-bottom: 70px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #FFFFFF;
+    min-width: 172px;
+    border-radius: 30px;
+    padding: 12px 28px;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.mobile-break {
+    display: none;
+}
+
+.mobile-break-title {
+    display: none;
+}
+
+.hero-email {
+    font-family: "Karla", sans-serif;
+    display: inline-block;
+    transform: rotate(-90deg);
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.hero-email:hover {
+    color: #3DCFB6;
+}
+
+.hero-social-icons {
+    display: flex;
+    flex-direction: column;
+    height: 32px;
+    width: 32px;
+    gap: 12px;
+}
+
+.ticker-wrapper {
+    overflow: hidden;
+}
+
+.ticker {
+    width: 110%;
+    left: -5%;
+    overflow: hidden;
+    position: absolute;
+    padding: 20px 20px;
+    bottom: 60px;
+    transform: rotate(-3deg);
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(5px);
+}
+
+.ticker-track {
+    color: rgba(61, 207, 182, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 56px;
+    font-size: 32px;
+    white-space: nowrap;
+    animation: scroll 25s linear infinite;
+}
+
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 40px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    height: 34vh;
+}
+
+.scroll-indicator a {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+}
+
+.scroll-indicator-mouse {
+    position: absolute;
+    width: 30px;
+    height: 48px;
+    border: 1px solid #3DCFB6;
+    border-radius: 30px;
+}
+
+.scroll-indicator-arrow {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    animation: float 1.2s ease-in-out infinite;
+}
+
+.scroll-indicator-vector {
+    position: absolute;
+    width: 1px;
+    height: 80%;
+    background-color: #3DCFB6;
+    left: 12px;
+    bottom: 0;
+        pointer-events: none;
+}
+
+.scroll-indicator:hover .scroll-indicator-mouse {
+    border-color: white;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.hero-social {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    color: white;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    margin-right: 50px;
+}
+
+.social-indicator-vector {
+    width: 1px;
+    height: 170px;
+    margin-top: 50px;
+    background-color: #3DCFB6;
+}
+
+.social-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mail-icon,
+.mail-icon-hover {
+    display: none;
+}
+
+.btn-wrapper {
+    position: relative;
+}
+
+.text {
+    display: block;
+    white-space: nowrap;
+}
+
+.btn-wrapper .text:last-child {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 200px);
+}
+
+.hero-buttons a:hover .btn-wrapper {
+    animation: buttonScroll 3s linear infinite;
+}
+
+@keyframes buttonScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 200px));
+    }
+}

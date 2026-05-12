@@ -1,0 +1,245 @@
+
+.contact {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #1C1C1C;
+}
+
+.contact-container {
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    color: #3DCFB6;
+    margin: 96px;
+    font-size: 24px;
+    gap: 64px;
+    align-content: center;
+}
+
+.contact-left {
+    flex: 1;
+}
+
+.contact-title {
+    font-size: 64px;
+    line-height: 1.0;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+
+.contact-description {
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    line-height: 1.2;
+    padding-top: 16px;
+}
+
+.contact-description-span {
+    font-weight: 700;
+    color: rgba(61, 207, 182, 1);
+}
+
+.contact-right {
+    flex: 1;
+
+}
+
+.contact-right h3 {
+    font-family: "Fira Code", monospace;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    padding-top: 32px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+}
+
+.contact-right p {
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    color: white;
+    padding-bottom: 32px;
+    padding-left: 32px;
+}
+
+.contact-field {
+    display: block;
+    position: relative;
+    border-top: 1px solid #3DCFB6;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-bottom: -1px;
+}
+
+.contact-field:hover {
+    background: rgba(61, 207, 182, 0.2);
+}
+
+.contact-field:hover .contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.help-field {
+    border-bottom: 1px solid #3DCFB6;
+}
+
+.contact-checkbox {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    gap: 8px;
+}
+
+.contact-checkbox input {
+    border-color: 1px solid #3DCFB6;
+}
+
+.contact-checkbox-text {
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.2;
+    color: white;
+}
+
+
+
+.custom-checkbox {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3DCFB6;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    background: transparent;
+}
+
+.custom-checkbox input:checked+.checkmark {
+    background: #3DCFB6;
+    border-color: #3DCFB6;
+}
+
+.custom-checkbox input:checked+.checkmark::after {
+    content: "✔";
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+
+.contact-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-button {
+    width: auto;
+    max-width: 160px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 30px;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.contact-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.status-container {
+    position: relative;
+    min-height: 30px;
+}
+
+.form-status {
+    font-size: 14px !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    background: transparent;
+    transition: opacity 0.2s ease;
+}
+
+.form-status.is-visible {
+    opacity: 1;
+}
+
+.contact-input {
+    width: 100%;
+    background: transparent;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    border: 0px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+    cursor: pointer;
+}
+
+.contact-input:focus {
+    outline: none;
+}
+
+.contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+.error-message {
+    font-size: 18px;
+    color: rgba(236, 123, 123, 0.8) !important;
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
+}
+
+#invalid-sign_up-email {
+    opacity: 0;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+        margin-bottom: -22px;
+}
+
+.submit {
+    border-top: 1px solid #ff4d4d;
+    border-bottom: 1px solid #ff4d4d !important;
+    z-index: 999;
+}
+
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus,
+.contact-input:-webkit-autofill:active {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+  caret-color: white;
+}

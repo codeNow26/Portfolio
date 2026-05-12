@@ -1,0 +1,194 @@
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 96px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-family: "Fira Code", monospace;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.navbar-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.language-switch {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #3DCFB6;
+    border-radius: 30px;
+    display: flex;
+    gap: 0px;
+    transition: ease-in-out 0.2s;
+}
+
+.language-switch:hover {
+    border: 1px solid white;
+}
+
+.language-switch a {
+    color: white;
+    text-decoration: none;
+    padding: 4px 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#english {
+    border-radius: 100px;
+    padding: 4px 12px;
+    color: rgba(61, 207, 182, 0.5);
+}
+
+#german {
+    border-radius: 100px;
+    padding: 4px 12px;
+    color: rgba(61, 207, 182, 0.5);
+}
+
+.active-lang {
+    background-color: #3DCFB6;
+    color: white !important;
+    font-weight: 700;
+}
+
+.nav-text {
+    position: relative;
+}
+
+.nav-text:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: #3DCFB6;
+    border-radius: 30px;
+    position: absolute;
+    bottom: -15px;
+    left: 40%;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+}
+
+.nav-text:hover::after {
+    opacity: 1;
+    position: absolute;
+    bottom: -15px;
+    left: 40%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+       text-decoration: none;
+}
+
+.logo-img {
+    width: 80px;
+    height: 70px;
+}
+
+.name {
+    display: block;
+    line-height: 1.1;
+    font-size: 26px;
+    font-weight: 900;
+    color: white;
+    font-family: "Karla", sans-serif;
+}
+
+.mobile-overlay {
+    position: fixed;
+    top: 10%;
+    right: 4%;
+    width: 240px;
+    height: 260px;
+    background: linear-gradient(1deg, #1C1C1C, #08463B);
+    border: 1px solid #3DCFB6;
+    border-radius: 30px;
+}
+
+.mobile-overlay-container {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.mobile-overlay-container.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(1px);
+}
+
+.github-container {
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
+
+.github-hover-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.github-hover-icon:hover {
+    opacity: 1;
+}
+
+.linkedIn-container {
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
+
+.linkedIn-hover-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.linkedIn-hover-icon:hover {
+    opacity: 1;
+}
+
+.mobile-menu {
+    display: none;
+}

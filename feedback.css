@@ -1,0 +1,170 @@
+
+.colleagues {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #1C1C1C;
+}
+
+.colleagues-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.feedback-wrapper {
+    position: relative;
+    width: 100vw;
+    z-index: 1;
+}
+
+.splide {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.splide__track {
+    overflow: visible !important;
+    z-index: 1;
+}
+
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    height: 274px;
+    max-width: 900px;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.splide__pagination {
+    display: none;
+}
+
+.feedback-wrapper::before,
+.feedback-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.feedback-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right,
+            #1C1C1C 0%,
+            rgba(28, 28, 28, 0.8) 40%,
+            transparent 100%);
+}
+
+.feedback-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left,
+            #1C1C1C 0%,
+            rgba(28, 28, 28, 0.8) 40%,
+            transparent 100%);
+}
+
+.feedback-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 274px;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid rgba(61, 207, 182, 1);
+    border-radius: 30px;
+    background: rgba(61, 207, 182, 0.3);
+    position: relative;
+    font-size: 18px;
+    line-height: 1.4;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.feedback-title {
+    color: #3DCFB6;
+    font-size: 32px;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -11px;
+    left: -44px;
+}
+
+.feedback-card-text {
+    color: white;
+    padding: 48px 48px 48px 48px;
+}
+
+.feedback-footer {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 30px;
+    font-size: 16px;
+}
+
+.feedback-line {
+    background: white;
+    height: 1px;
+    width: 360px;
+}
+
+.splide__list {
+    display: flex;
+}
+
+
+.slider-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.slide-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 184px;
+    height: 40px;
+}
+
+.slide-arrow {
+    cursor: pointer;
+}
+
+.slide-dots {
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.quote-icon {
+    position: absolute;
+    left: -44px;
+}

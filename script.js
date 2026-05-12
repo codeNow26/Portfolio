@@ -1,22 +1,10 @@
-let currentLanguage = localStorage.getItem("lang") || "en";
-let mouseX = 0;
-let mouseY = 0;
-let currentX = 0;
-let currentY = 0;
+
 let currentProjectIndex = 0;
+let currentSplideIndex = 0;
 
-const projectOrder = ["join", "el_pollo_loco", "bubble"];
-
-const glow = document.querySelector('.cursor-glow');
-const overlay = document.querySelector(".mobile-overlay-container");
-const menuIcon = document.getElementById("mobile-menu-icon");
-
+const projectOrder = ["join", "el_pollo_loco"];
 const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-
-const navLeft = document.getElementById("nav-left");
-const mobileOverlay = document.getElementById("mobile-overlay");
-const navbarContainer = document.querySelector(".navbar-container");
+document.getElementById("next-project").addEventListener("click", nextProject);
 
 const projects = {
     join: {
@@ -31,9 +19,6 @@ const projects = {
         live: "https://codenow26.github.io/El-Pollo-Loco/",
         tech: ["htmloverlay.png", "CSS.png", "javascriptoverlay.png"],
     },
-    bubble: {
-        image: "./img/bubble.png"
-    }
 };
 
 emailjs.init("mDZPlBNGP4szLcUBH");
@@ -55,41 +40,12 @@ const splide = new Splide('.splide', {
     }
 });
 
-animate();
 splide.mount();
-
-window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
 
 nextBtn.addEventListener('click', () => {
     splide.go('>');
+    updateDots();
 });
-
-prevBtn.addEventListener('click', () => {
-    splide.go('<');
-});
-
-document.getElementById("privacy-check")
-    .addEventListener("change", validateForm);
-
-document.getElementById("next-project").addEventListener("click", nextProject);
-
-menuIcon.addEventListener("click", menuToggle);
-
-overlay.addEventListener("click", (event) => {
-    if (event.target === overlay) {
-        overlay.classList.remove("show");
-    }
-});
-
-document.querySelectorAll(".contact-input").forEach(input => {
-    setupValidation(input);
-});
-
-window.addEventListener("resize", handleNavPosition);
-window.addEventListener("load", handleNavPosition);
 
 /** Animates cursor glow */
 function animate() {
@@ -100,167 +56,6 @@ function animate() {
     glow.style.top = currentY + 'px';
 
     requestAnimationFrame(animate);
-}
-
-/**
- * Sets up validation for input
- * @param {HTMLInputElement} input
- */
-function setupValidation(input) {
-    const container = input.closest(".contact-field");
-    const error = container.querySelector(".error-message");
-    const invalidError = document.getElementById("invalid-sign_up-email");
-
-    let touched = false;
-
-    input.addEventListener("focus", () => {
-        touched = true;
-    });
-
-    input.addEventListener("blur", () => {
-        if (touched) validate();
-    });
-
-    input.addEventListener("input", () => {
-
-        const value = input.value.trim();
-
-        if (input.type === "email") {
-
-            const isValidEmail =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-            if (value && isValidEmail) {
-                invalidError.classList.remove("opacity-1");
-            }
-        }
-
-        if (value) {
-            error?.classList.remove("opacity-1");
-        }
-
-        validateForm();
-    });
-
-    function validate() {
-
-        const value = input.value.trim();
-
-        let isValid = value.length > 0;
-
-        if (input.type === "email") {
-
-            isValid =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-            if (value && !isValid) {
-
-                invalidError.classList.add("opacity-1");
-
-            } else {
-
-                invalidError.classList.remove("opacity-1");
-            }
-        }
-
-        if (isValid) {
-            input.classList.add("valid");
-            input.classList.remove("invalid");
-        } else {
-            input.classList.remove("valid");
-            input.classList.add("invalid");
-        }
-
-        if (!value && touched) {
-
-            container.classList.add("submit");
-            error?.classList.add("opacity-1");
-            input.placeholder = "";
-
-        } else {
-
-            container.classList.remove("submit");
-
-            if (input.type !== "email") {
-                error?.classList.remove("opacity-1");
-            }
-        }
-
-        validateForm();
-
-        return isValid;
-    }
-}
-
-function validateForm() {
-    const inputs = document.querySelectorAll(".contact-input");
-    const button = document.getElementById("contact-submit");
-    const checkbox = document.getElementById("privacy-check");
-    let formValid = true;
-
-    inputs.forEach(input => {
-        if (!input.classList.contains("valid")) {
-            formValid = false;
-        }
-    });
-
-    const allValid = formValid && checkbox.checked;
-
-    button.disabled = !allValid
-}
-
-/**
- * Sends email via EmailJS
- * @param {Event} event
- */
-function sendMail(event) {
-    event.preventDefault();
-    const checkbox = document.getElementById("privacy-check");
-    const statusSuccess = document.getElementById("form-status");
-    const statusError = document.getElementById("privacy-error");
-    const btn = document.querySelector('button[type="submit"]');
-    statusSuccess.classList.remove("active");
-    statusError.classList.remove("active");
-
-    if (!checkbox.checked) {
-        statusError.innerText = "Please accept the privacy policy";
-        statusError.style.color = "#EC7B7B";
-        statusError.classList.add("active");
-        return;
-    }
-
-    const name = document.querySelector('[name="name"]').value;
-    const email = document.querySelector('[name="email"]').value;
-    const message = document.querySelector('[name="message"]').value;
-
-    btn.disabled = true;
-    btn.innerText = "Sending...";
-
-    emailjs.send("service_a5hs47c", "template_6s3rwh8", {
-        name: name,
-        email: email,
-        message: message
-    })
-        .then(() => {
-            statusSuccess.innerText = "Message sent successfully";
-            statusSuccess.style.color = "#3DCFB6";
-            statusSuccess.classList.add("active");
-
-            document.querySelector("form").reset();
-
-            btn.disabled = false;
-            btn.innerText = "Say Hello ;)";
-        })
-        .catch((error) => {
-            console.error(error);
-
-            statusError.innerText = "Something went wrong. Try again.";
-            statusError.style.color = "#EC7B7B";
-            statusError.classList.add("active");
-
-            btn.disabled = false;
-            btn.innerText = "Try again";
-        });
 }
 
 /**
@@ -282,13 +77,13 @@ function setCurrentProject(project) {
     if (currentProjectIndex === -1) currentProjectIndex = 0;
 }
 
-/** Shows overlay */
+/** Shows project overlay */
 function showOverlay() {
     document.getElementById("portfolio-overlay").classList.add("show");
     document.querySelector(".overlay-backdrop").classList.add("activeshow");
 }
 
-/** Closes overlay */
+/** Closes project overlay */
 function closeProjectsOverlay() {
     document.getElementById("portfolio-overlay").classList.remove("show");
     document.querySelector(".overlay-backdrop").classList.remove("activeshow");
@@ -320,7 +115,7 @@ function updateText(data, project) {
         data.title || formatProjectName(project);
 
     document.querySelector("#overlay-about").textContent =
-        data.about || "What is this project about?";
+        getTranslation(currentLanguage, "portfolio.projects.about");
 
     document.querySelector("#overlay-number").textContent =
         data.number || "";
@@ -354,23 +149,12 @@ function updateTech(techArray = []) {
     });
 }
 
-/** Goes to next project */
+/** Shows next project in carousel */
 function nextProject() {
     currentProjectIndex++;
 
     if (currentProjectIndex >= projectOrder.length) {
         currentProjectIndex = 0;
-    }
-
-    renderProject(projectOrder[currentProjectIndex]);
-}
-
-/** Goes to previous project */
-function prevProject() {
-    currentProjectIndex--;
-
-    if (currentProjectIndex < 0) {
-        currentProjectIndex = projectOrder.length - 1;
     }
 
     renderProject(projectOrder[currentProjectIndex]);
@@ -387,17 +171,47 @@ function formatProjectName(name) {
         .replace(/\b\w/g, char => char.toUpperCase());
 }
 
-/** Toggles mobile menu */
-function menuToggle() {
-    overlay.classList.toggle("show");
+/**
+ * Updates the active state of the slider dots.
+ */
+function updateDots() {
+    const dots = document.querySelectorAll(".dot");
+    const currentSplideIndex = splide.index;
+    dots.forEach((dot, index) => {
+        if (index === currentSplideIndex) {
+            dot.classList.add("active");
+        } else {
+            dot.classList.remove("active");
+        }
+    });
 }
 
-/** Handles nav repositioning */
-function handleNavPosition() {
-    if (window.innerWidth <= 800) {
-        mobileOverlay.appendChild(navLeft);
+/** Adds click navigation to the slider dots */
+function setupDotNavigation() {
+    const dots = document.querySelectorAll(".dot");
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            splide.go(index);
+            updateDots();
+        });
+    });
+}
+
+/**
+ * Initializes slider dot navigation
+ */
+setupDotNavigation();
+
+/**
+ * Updates legal notice link based on selected language
+ * @param {string} lang
+ */
+function updateLegalNoticeLink(lang) {
+    if (lang === "de") {
+        legalNoticeLink.href = "./legal-notice-de.html";
+        legalNoticeLink.textContent = "Impressum";
     } else {
-        navbarContainer.insertBefore(navLeft, navbarContainer.querySelector(".logo"));
+        legalNoticeLink.href = "./legal-notice.html";
+        legalNoticeLink.textContent = "Legal Notice";
     }
 }
-

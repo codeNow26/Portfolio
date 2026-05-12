@@ -1,0 +1,401 @@
+
+.portfolio {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #1C1C1C;
+}
+
+.portfolio-container {
+    max-width: 1440px;
+    width: 100%;
+    height: 565px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 96px;
+}
+
+.hover-image-container {
+    flex: 1;
+    position: relative;
+    min-height: 300px;
+    max-width: 330px;
+    margin-bottom: 100px;
+}
+
+.project-title {
+    margin: 0;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    margin-right: 20px;
+    border: 1px solid #32d6c9;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #32d6c9;
+    background: rgba(50, 214, 201, 0.08);
+    letter-spacing: 0.5px;
+    
+}
+
+.project-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #32d6c9;
+
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.portfolio-text {
+    font-size: 18px;
+    line-height: 1.4;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    padding: 41px 0px;
+    color: white;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 1;
+    color: white;
+    font-family: "Fira Code", monospace;
+}
+
+
+.portfolio-overlay {
+    display: flex;
+    background: linear-gradient(1deg, #1C1C1C, #08463B);
+    width: 100%;
+    max-width: 1400px;
+    max-height: 90vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #3DCFB6;
+    border-radius: 38px;
+    font-family: "Karla", sans-serif;
+}
+
+.portfolio-overlay-container {
+    display: flex;
+    flex-direction: column;
+    margin: 96px;
+}
+
+.portfolio-overlay-left,
+.portfolio-overlay-right {
+    flex: 1;
+}
+
+.close-icon {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.close-icon::before,
+.close-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 2px;
+    background: white;
+    transform-origin: center;
+}
+
+.close-icon::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-icon::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.close-icon:hover {
+    transition: transform 0.2s ease;
+    transform: rotate(90deg) scale(1.4);
+}
+
+
+.overlay-backdrop {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
+}
+
+.overlay-backdrop.activeshow {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 999;
+}
+
+.portfolio-overlay-container h1 {
+    color: #3DCFB6;
+    font-size: 128px;
+}
+
+.portfolio-overlay-container h2 {
+    color: white;
+    font-size: 64px;
+    font-family: "Fira Code", monospace;
+    font-weight: 700;
+}
+
+.portfolio-overlay-container h3 {
+    color: #3DCFB6;
+    font-family: "Fira Code", monospace;
+    font-weight: 700;
+    font-size: 24px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.portfolio-overlay-left p {
+    color: white;
+    font-size: 18px;
+}
+
+.next-project-container {
+    display: flex;
+    align-items: flex-end;
+    color: #3DCFB6;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.next-project {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.next-project:hover {
+color: white;
+}
+
+.next-project:hover img {
+    transform: translate(4px, 0);
+}
+
+.project-link-container {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    gap: 32px;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #FFFFFF;
+    font-size: 18px;
+    border-radius: 30px;
+    padding: 12px 28px;
+    gap: 10px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.project-link:hover {
+    border: 1px solid rgba(61, 207, 182, 1);
+    color: rgba(61, 207, 182, 1);
+}
+
+.project-link img {
+    transition: transform 0.2s ease;
+}
+
+.project-link:hover img {
+    transform: translate(2px, -2px);
+}
+
+.portfolio-overlay-top {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.portfolio-overlay-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.portfolio-overlay-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tech-icons {
+    display: flex;
+    gap: 10px;
+    padding-top: 32px;
+}
+
+.Join-screenshot {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    border-radius: 32px;
+}
+
+.portfolio-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hover-images {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.portfolio-content:has(#join:hover) #img-join {
+    opacity: 1;
+}
+
+.portfolio-content:has(#el_pollo_loco:hover) #img-elpollo {
+    opacity: 1;
+}
+
+.join-hover-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.background-join {
+    width: 78%;
+    height: auto;
+    position: absolute;
+    top: -3%;
+    right: -3%;
+    border-radius: 12px;
+}
+
+.background-el_pollo {
+    width: 90%;
+    height: auto;
+    position: absolute;
+    top: 45%;
+    right: -4%;
+    border-radius: 12px;
+}
+
+.el-pollo-hover-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 48%;
+    right: 0;
+    border-radius: 12px;
+}
+
+.project {
+    height: 109px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #3DCFB6;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.project-name {
+    padding: 40px 0px 40px 32px;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.project-name::after {
+    content: "";
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    background-image: url("./img/icons/arrow_outward_whte.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 8px;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.4s ease;
+}
+
+.project:hover .project-name::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tech span:not(:last-child)::after {
+    content: "|";
+    color: #3DCFB6;
+    margin-left: 8px;
+}
+
+.project:hover {
+    background: rgba(61, 207, 182, 0.2)
+}
+
+.tech {
+    padding-right: 32px;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #3DCFB6;
+}

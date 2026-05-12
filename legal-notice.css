@@ -1,8 +1,9 @@
 body {
     margin: 0;
     overflow-x: hidden;
-    height: 100dvh;
+    min-height: 100dvh;
     background: linear-gradient(1deg, #1C1C1C, #08463B);
+    font-family: "Fira Code", monospace;
 }
 
 .legal-notice {
@@ -15,7 +16,7 @@ body {
     font-weight: 400;
     color: #3DCFB6;
     font-size: 16px;
-    margin: 149px 216px;
+    margin: 0px 216px 40px 216px;
 }
 
 .titles {
@@ -26,8 +27,55 @@ body {
 
 .legal-notice-title {
     text-align: center;
-  font-family: "Fira Code", monospace;
-  font-weight: 700;
-  font-size: 64px;
-  margin-bottom: 64px;
+    font-family: "Fira Code", monospace;
+    font-weight: 700;
+    font-size: 64px;
+    margin-bottom: 64px;
+    margin-top: 140px;
+}
+
+a {
+    color: #5dffe4;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: flex !important;
+}
+
+.opacity-0 {
+    opacity: 0 !important;
+}
+
+.opacity-1 {
+    opacity: 1 !important;
+}
+
+.active {
+    background: #3DCFB6 !important;
+}
+
+
+.footer {
+    height: auto !important;
+    margin-top: 50px !important;
+    background: transparent !important;
+    padding: 0px 0px 0px !important;
+}
+
+@media(max-width:1250px) {
+    .legal-notice {
+        margin: 0px 60px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .legal-notice {
+        margin: 0px 12px;
+    }
 }

@@ -1,3 +1,7 @@
+/**
+ * Translation object for all supported languages
+ * @type {Object}
+ */
 const translations = {
     en: {
         nav: {
@@ -33,8 +37,9 @@ const translations = {
         portfolio: {
             title: "Featured Projects",
             description: "Here you’ll get an insight into some of my projects and the way I work",
-            about: "what is this project about?",
+               next: "Next Project",
             projects: {
+                about: "what is this project about?",
                 join: {
                     description: "Task manager inspired by the Kanban system. Create and organize tasks using drag and drop functions, assign users and categories",
                     number: "01"
@@ -47,6 +52,9 @@ const translations = {
         },
         feedback: {
             title: "What my colleagues say about me",
+            quote1: "Philipp is a truly creative person. He consistently finds modern solutions to even the most complex problems. It is a real pleasure to work with him, because you always know you can rely on him when it really matters.",
+            quote2: "Working with Philipp was always straightforward and enjoyable. He brings a lot of creative ideas to the table, works reliably, and keeps a clear head even when tackling challenging tasks.",
+            quote3: "Philipp is someone you can always count on. He approaches his work with real dedication, thinks ahead, and often comes up with solutions that others might not see right away."
         },
         contact: {
             contact_me: "Contact me",
@@ -65,14 +73,15 @@ const translations = {
             email_required: "Hoppla! your email is required",
             help_required: "What do you need to develop?",
             privacy_error: "Please accept the privacy policy",
-             email_invalid: "Please enter a valid email address",
+            email_invalid: "Please enter a valid email address",
+            form_status: "Message sent successfully",
         }
 
     },
     de: {
         nav: {
             about: "Über mich",
-            skills: "Skills",
+            skills: "Fähigkeiten",
             projects: "Projekte"
         },
         hero: {
@@ -103,8 +112,9 @@ const translations = {
         portfolio: {
             title: "Ausgewählte Projekte",
             description: "Hier bekommst du einen Einblick in einige meiner Projekte und Arbeitsweisen",
+            next: "Nächstes Projekt",
             projects: {
-                about: "Worum geht es bei diesem Projekt?",
+                about: "Worum geht es in diesem Projekt?",
                 join: {
                     description: "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu",
                     number: "01"
@@ -117,10 +127,13 @@ const translations = {
         },
         feedback: {
             title: "Was meine Kollegen über mich sagen",
+            quote1: "Philipp ist wirklich ein kreativer Mensch. Er findet stets die modernsten Lösungen für die komplexesten Probleme. Es ist eine echte Freude, mit ihm zu arbeiten, denn man weiß, dass man sich auf ihn verlassen kann, wenn es wirklich darauf ankommt.",
+            quote2: "Mit Philipp zusammenzuarbeiten war immer angenehm und unkompliziert. Er bringt viele kreative Ideen mit, arbeitet zuverlässig und verliert auch bei kniffligen Aufgaben nie den Überblick.",
+            quote3: "Philipp ist jemand, auf den man sich jederzeit verlassen kann. Er arbeitetmit viel Engagement, denkt mit und findet oft Lösungen, auf die man selbst nicht sofort gekommen wäre."
         },
         contact: {
             contact_me: "Kontaktiere mich",
-          title: "Lass uns zusammen<span class='mobile-break-title'><br></span>arbeiten",
+            title: "Lass uns zusammen<span class='mobile-break-title'><br></span>arbeiten",
             problem: "Du hast eine Idee oder ein Projekt?",
             description: "Ich bin offen für neue Projekte und spannende Zusammenarbeit. Am meisten Spaß machen mir Aufgaben, bei denen man nicht nur etwas Schönes baut, sondern auch etwas, das sich gut benutzen lässt.<br><br>Du brauchst einen Frontend-Entwickler? <span class=\"contact-description-span\">Lass uns reden!</span>",
             name: "Wie ist dein Name?",
@@ -135,7 +148,8 @@ const translations = {
             email_required: "Hoppla! Deine E-Mail ist erforderlich",
             help_required: "Was möchtest du entwickeln?",
             privacy_error: "Bitte akzeptiere die Datenschutzerklärung",
-                email_invalid: "Bitte gib eine gültige E-Mail-Adresse ein",
+            email_invalid: "Bitte gib eine gültige E-Mail-Adresse ein",
+            form_status: "Nachricht erfolgreich gesendet",
         }
     },
 }
@@ -155,13 +169,15 @@ function getTranslation(lang, key) {
  * @param {string} lang
  */
 function setLanguage(lang) {
+    currentLanguage = lang;
     document.querySelectorAll("[data-i18n]").forEach(el => {
         el.innerHTML = getTranslation(lang, el.dataset.i18n);
     });
 
     localStorage.setItem("lang", lang);
-    currentLanguage = lang;
+
     switchLanguageButton(lang);
+    updateLegalNoticeLink(lang);
 }
 
 /** Initializes language on page load */
@@ -170,6 +186,9 @@ window.onload = () => {
     setLanguage(lang);
 };
 
+/**
+ * Initializes language buttons
+ */
 document.getElementById("english").onclick = () => setLanguage("en");
 document.getElementById("german").onclick = () => setLanguage("de");
 
