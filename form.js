@@ -4,7 +4,7 @@ document.querySelectorAll(".contact-input").forEach(input => {
 
 document.getElementById("privacy-check")
     .addEventListener("change", validateForm);
-    
+
 /**
  * Sets up validation for input */
 function setupValidation(input) {
@@ -144,7 +144,7 @@ function handleSuccessfulSubmit() {
     document.querySelectorAll(".contact-input").forEach(input => {
         input.classList.remove("valid", "invalid");
     });
-
+    setLanguage(currentLanguage || "en");
     validateForm();
 }
 
@@ -187,13 +187,13 @@ function setButtonState(disabled, text) {
 
 /** Sends email using EmailJS service */
 function sendEmail(formData) {
-  return  emailjs.send(
+    return emailjs.send(
         "service_a5hs47c",
         "template_6s3rwh8",
         formData
     )
-    .then(handleSuccess)
-    .catch(handleError);
+        .then(handleSuccess)
+        .catch(handleError);
 }
 
 /** Handles successful email submission */

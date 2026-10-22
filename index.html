@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 
 <body>
@@ -299,18 +300,31 @@
                                     <div class="portfolio-overlay-left">
                                         <h1 id="overlay-number">01</h1>
                                         <h2 id="overlay-title">Join</h2>
-                                        <h3 data-i18n="portfolio.projects.about" id="overlay-about">What is this project about?</h3>
-                                        <p  id="overlay-description">Task manager inspired by the Kanban
+                                        <h3 data-i18n="portfolio.projects.about" id="overlay-about">What is this project
+                                            about?</h3>
+                                        <p id="overlay-description">Task manager inspired by the Kanban
                                             System. Create and organize tasks using drag
                                             and
                                             drop
                                             functions, assign users and categories</p>
                                         <div class="tech-icons" id="overlay-tech">
-                                            <img class="tech-icon" src="./img/icons/CSS.png">
-                                            <img class="tech-icon" src="./img/icons/htmloverlay.png">
-                                            <img class="tech-icon" src="./img/icons/firebaseoverlay.png">
-                                            <img class="tech-icon" src="./img/icons/angularoverlay.png">
-                                            <img class="tech-icon" src="./img/icons/typescriptoverlay.png">
+                                            <div class="tech-icon">
+                                                <img src="./img/icons/CSS.png">
+                                                <div>CSS</div>
+                                            </div>
+                                            <div class="tech-icon">
+                                                <img src="./img/icons/htmloverlay.png">
+                                                <div>HTML</div>
+                                            </div>
+                                            <div class="tech-icon">
+                                                <img src="./img/icons/firebaseoverlay.png">
+                                            </div>
+                                            <div class="tech-icon">
+                                                <img src="./img/icons/angularoverlay.png">
+                                            </div>
+                                            <div class="tech-icon">
+                                                <img src="./img/icons/typescriptoverlay.png">
+                                            </div>
                                         </div>
 
                                         <div class="project-link-container">
@@ -334,9 +348,9 @@
                                     </div>
                                 </div>
                                 <div class="portfolio-overlay-bottom">
-                                    <div  id="next-project" class="next-project-container">
+                                    <div id="next-project" class="next-project-container">
                                         <div class="next-project">
-                                            <span data-i18n="portfolio.next" >Next project</span>
+                                            <span data-i18n="portfolio.next">Next project</span>
                                             <img src="./img/icons/arrow_forward.svg">
                                         </div>
                                     </div>
@@ -354,8 +368,7 @@
                         <div id="join" onclick="openProjectsOverlay('join')" class="project">
                             <span class="project-name">Join</span>
                             <span class="tech">
-                                <span>Angular</span>
-                                <span>TypeScript</span>
+                                <span>JavaScript</span>
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>Firebase</span>
@@ -366,9 +379,20 @@
                             class="project border-bottom">
                             <span class="project-name">El Pollo Loco</span>
                             <span class="tech">
+                                <span>JavaScript</span>
                                 <span>HTML</span>
                                 <span>CSS</span>
-                                <span>JavaScript</span>
+                            </span>
+                        </div>
+
+                        <div id="poll_app" onclick="openProjectsOverlay('poll_app')" class="project border-bottom">
+                            <span class="project-name">Poll App</span>
+                            <span class="tech">
+                                <span>Angular</span>
+                                <span>TypeScript</span>
+                                <span>Supabase</span>
+                                <span>HTML</span>
+                                <span>SCSS</span>
                             </span>
                         </div>
 
@@ -384,6 +408,12 @@
                         <div id="img-elpollo" class="hover-images">
                             <img class="background-el_pollo" src="./img/Capa_1(1).png">
                             <img class="el-pollo-hover-img" src="./img/El Pollo Loco Screenshot.png">
+                        </div>
+
+
+                        <div id="img-poll_app" class="hover-images">
+                            <img class="background-poll_app" src="./img/Capa_1(1).png">
+                            <img class="poll_app-hover-img" src="./img/Poll App Screenshot.png">
                         </div>
                     </div>
 
@@ -533,62 +563,59 @@
                         </div>
                     </form>
                 </div>
-                        </section>
-              <footer class="footer">
-    <div class="footer-container">
+        </section>
+        <footer class="footer">
+            <div class="footer-container">
 
-        <div class="footer-left">
-            <div class="logo">
-                <img class="logo-img" src="./img/icons/tryyyy.png">
-                <span class="name">Philipp<br> Nowotnick</span>
+                <div class="footer-left">
+                    <div class="logo">
+                        <img class="logo-img" src="./img/icons/tryyyy.png">
+                        <span class="name">Philipp<br> Nowotnick</span>
+                    </div>
+                    <p>Web developer</p>
+                    <p>Hoyerswerda Germany</p>
+                </div>
+
+                <div class="footer-middle">
+                    <p>© Philipp Nowotnick 2026</p>
+                </div>
+
+                <div class="footer-right">
+                    <div class="github-container">
+                        <a class="footer-text" target="_blank" href="https://github.com/codeNow26">
+                            Github
+                        </a>
+                    </div>
+
+                    <div class="linked-container">
+                        <a class="footer-text" target="_blank"
+                            href="https://www.linkedin.com/in/philipp-nowotnick-674611402/">
+                            LinkedIn
+                        </a>
+                    </div>
+
+                    <div>
+                        <a class="footer-email footer-text" href="mailto:contact@philippnowotnick@hotmail.de">
+                            Email
+                        </a>
+                    </div>
+
+                    <div>
+                        <a id="legal-notice-link" class="footer-text" target="_blank" href="./legal-notice.html">
+                            Legal Notice
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            <p>Web developer</p>
-            <p>Hoyerswerda Germany</p>
-        </div>
+        </footer>
 
-        <div class="footer-middle">
-            <p>© Philipp Nowotnick 2026</p>
-        </div>
+    </main>
 
-        <div class="footer-right">
-            <div class="github-container">
-                <a class="footer-text" target="_blank" href="https://github.com/codeNow26">
-                    Github
-                </a>
-            </div>
-
-            <div class="linked-container">
-                <a class="footer-text" target="_blank"
-                   href="https://www.linkedin.com/in/philipp-nowotnick-674611402/">
-                    LinkedIn
-                </a>
-            </div>
-
-            <div>
-                <a class="footer-email footer-text"
-                   href="mailto:contact@philippnowotnick@hotmail.de">
-                    Email
-                </a>
-            </div>
-
-            <div>
-                <a id="legal-notice-link"
-                   class="footer-text"
-                   target="_blank"
-                   href="./legal-notice.html">
-                    Legal Notice
-                </a>
-            </div>
-        </div>
-
-    </div>
-</footer>
-
-</main>
-
-<script src="./script.js"></script>
-<script src="header.js"></script>
-<script src="./form.js"></script>
-<script src="./translations.js"></script>
+    <script src="./script.js"></script>
+    <script src="header.js"></script>
+    <script src="./form.js"></script>
+    <script src="./translations.js"></script>
 </body>
+
 </html>

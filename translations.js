@@ -47,6 +47,10 @@ const translations = {
                 el_pollo_loco: {
                     description: "2D platformer game built using object-oriented programming. Help Pepe collect coins and tabasco salsa to defeat the crazy chickens.",
                     number: "02"
+                },
+                poll_app: {
+                    description: "An interactive polling app where users can create surveys, vote on questions, and explore polls by category.",
+                    number: "03"
                 }
             }
         },
@@ -122,6 +126,10 @@ const translations = {
                 el_pollo_loco: {
                     description: "Ein 2D Jump-and-Run-Spiel mit objektorientiertem Ansatz. Hilf Pepe dabei, Münzen und Tabasco-Salsa zu sammeln, um sich gegen die verrückten Hühner durchzusetzen.",
                     number: "02"
+                },
+                poll_app: {
+                    description: "Eine interaktive Umfrage-App, in der Benutzer Umfragen erstellen, Fragen beantworten und Umfragen nach Kategorien durchsuchen können.",
+                    number: "03"
                 }
             }
         },
@@ -139,7 +147,7 @@ const translations = {
             name: "Wie ist dein Name?",
             name_placeholder: "Dein Name hier",
             email: "Wie ist deine E-Mail?",
-            email_placeholder: "youremail@email.com",
+            email_placeholder: "deineEmail@email.com",
             help: "Wie kann ich dir helfen?",
             help_placeholder: "Hallo Lukas, ich interessiere mich für...",
             privacy_policy: "Ich habe die <span>Datenschutzerklärung</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu",
@@ -171,11 +179,14 @@ function getTranslation(lang, key) {
 function setLanguage(lang) {
     currentLanguage = lang;
     document.querySelectorAll("[data-i18n]").forEach(el => {
-        el.innerHTML = getTranslation(lang, el.dataset.i18n);
+        const translation = getTranslation(lang, el.dataset.i18n);
+        if (el.tagName === "INPUT") {
+            el.placeholder = translation;
+        } else {
+            el.innerHTML = translation;
+        }
     });
-
     localStorage.setItem("lang", lang);
-
     switchLanguageButton(lang);
     updateLegalNoticeLink(lang);
 }

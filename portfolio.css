@@ -1,4 +1,3 @@
-
 .portfolio {
     width: 100%;
     display: flex;
@@ -44,7 +43,6 @@
     color: #32d6c9;
     background: rgba(50, 214, 201, 0.08);
     letter-spacing: 0.5px;
-    
 }
 
 .project-title-row {
@@ -101,7 +99,7 @@
 .portfolio-overlay {
     display: flex;
     background: linear-gradient(1deg, #1C1C1C, #08463B);
-    width: 100%;
+    width: 95%;
     max-width: 1400px;
     max-height: 90vh;
     position: absolute;
@@ -218,7 +216,7 @@
 }
 
 .next-project:hover {
-color: white;
+    color: white;
 }
 
 .next-project:hover img {
@@ -276,10 +274,42 @@ color: white;
     align-items: center;
 }
 
+.tech-container {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: fit-content;
+    gap: 8px;
+    border: 1px solid #3DCFB6;
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 8px;
+    transition: all 0.2s ease;
+}
+
+.tech-container:hover {
+    background: rgba(61, 207, 182, 0.2);
+    transform: scale(1.1);
+    transform: translateY(-2px);
+}
+
 .tech-icons {
     display: flex;
     gap: 10px;
     padding-top: 32px;
+}
+
+.tech-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex-shrink: 0;
+   filter: invert(77%) sepia(38%) saturate(719%) hue-rotate(116deg) brightness(91%) contrast(89%);
+}
+
+.tech-container:hover .tech-icon {
+    filter: invert(50%) sepia(38%) saturate(719%) hue-rotate(116deg) brightness(91%) contrast(89%);
 }
 
 .Join-screenshot {
@@ -308,6 +338,10 @@ color: white;
 }
 
 .portfolio-content:has(#el_pollo_loco:hover) #img-elpollo {
+    opacity: 1;
+}
+
+.portfolio-content:has(#poll_app:hover) #img-poll_app {
     opacity: 1;
 }
 
@@ -343,6 +377,36 @@ color: white;
     top: 48%;
     right: 0;
     border-radius: 12px;
+}
+
+.background-poll_app {
+    width: 79%;
+    height: auto;
+    position: absolute;
+    top: 72%;
+    right: -2%;
+    border-radius: 12px;
+}
+
+.poll_app-hover-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 75%;
+    right: 0;
+    border-radius: 12px;
+}
+
+.supabase-icon {
+    height: 41px;
+    width: auto;
+    object-fit: contain;
+}
+
+.Sass-icon {
+    height: 41px;
+    width: auto;
+    object-fit: contain;
 }
 
 .project {

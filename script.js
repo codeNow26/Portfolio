@@ -2,7 +2,7 @@
 let currentProjectIndex = 0;
 let currentSplideIndex = 0;
 
-const projectOrder = ["join", "el_pollo_loco"];
+const projectOrder = ["join", "el_pollo_loco", "poll_app"];
 const nextBtn = document.querySelector('.next');
 document.getElementById("next-project").addEventListener("click", nextProject);
 
@@ -11,13 +11,35 @@ const projects = {
         image: "./img/icons/Join Screenshot.png",
         github: "https://github.com/codeNow26/Join---Portfolio",
         live: "https://codenow26.github.io/Join---Portfolio/",
-        tech: ["angularoverlay.png", "typescriptoverlay.png", "htmloverlay.png", "CSS.png", "firebaseoverlay.png"],
+
+        tech: [
+            { name: "HTML", icon: "html.svg" },
+            { name: "CSS", icon: "css.svg" },
+            { name: "JavaScript", icon: "javascript.svg" },
+            { name: "Firebase", icon: "firebase.svg" }
+        ],
     },
     el_pollo_loco: {
         image: "./img/El Pollo Loco Screenshot 2.png",
         github: "https://github.com/codeNow26/El-Pollo-Loco",
         live: "https://codenow26.github.io/El-Pollo-Loco/",
-        tech: ["htmloverlay.png", "CSS.png", "javascriptoverlay.png"],
+        tech: [
+            { name: "HTML", icon: "html.svg" },
+            { name: "CSS", icon: "css.svg" },
+            { name: "JavaScript", icon: "javascript.svg" }
+        ],
+    },
+    poll_app: {
+        image: "./img/Poll App Screenshot.png",
+        github: "https://github.com/codeNow26/poll-app",
+        live: "https://philipp-nowotnick.developerakademie.net/poll-app/#/",
+        tech: [
+            { name: "Angular", icon: "angular.svg" },
+            { name: "TypeScript", icon: "typescript.svg" },
+            { name: "Supabase", icon: "supabase.svg" },
+            { name: "HTML", icon: "html.svg" },
+            { name: "Sass", icon: "Sass.svg" }
+        ],
     },
 };
 
@@ -142,10 +164,15 @@ function updateTech(techArray = []) {
     const container = document.querySelector("#overlay-tech");
     container.innerHTML = "";
 
-    techArray.forEach(icon => {
+    techArray.forEach(tech => {
         container.innerHTML += `
-            <img class="tech-icon" src="./img/icons/${icon}">
+        <div class="tech-container">
+            <img class="tech-icon ${tech.icon === 'supabaseoverlay.png' ? 'supabase-icon' : ''} ${tech.icon === 'Sass.png' ? 'Sass-icon' : ''}"
+                 src="./img/icons/Project_Icons/${tech.icon}" alt="${tech.name}">
+                 <span>${tech.name}</span>
+                 </div>
         `;
+        console.log(tech);
     });
 }
 
