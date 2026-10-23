@@ -1,0 +1,41 @@
+
+name: Deploy Portfolio to IONOS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload website via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+          mkdir -p ~/.ssh
+          echo "access-5020380091.webspace-host.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINbBMvvDjN4IP04VAZlDH42A+HL25ifeIK9CorAvaMA/" >> ~/.ssh/known_hosts
+
+          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" \
+            -p "$SFTP_PORT" "sftp://$SFTP_HOST" <<'EOF'
+          set sftp:auto-confirm no
+          mirror --reverse --verbose \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob .vscode/ \
+            --exclude-glob *.scss \
+            ./ ./
+          bye
+          EOF
