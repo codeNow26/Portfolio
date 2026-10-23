@@ -38,7 +38,7 @@ const projects = {
             { name: "TypeScript", icon: "typescript.svg" },
             { name: "Supabase", icon: "supabase.svg" },
             { name: "HTML", icon: "html.svg" },
-            { name: "Sass", icon: "Sass.svg" }
+            { name: "Sass", icon: "sass.svg" }
         ],
     },
 };
