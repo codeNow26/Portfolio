@@ -37,7 +37,7 @@ const translations = {
         portfolio: {
             title: "Featured Projects",
             description: "Here you’ll get an insight into some of my projects and the way I work",
-               next: "Next Project",
+            next: "Next Project",
             projects: {
                 about: "what is this project about?",
                 join: {
@@ -51,6 +51,14 @@ const translations = {
                 poll_app: {
                     description: "An interactive polling app where users can create surveys, vote on questions, and explore polls by category.",
                     number: "03"
+                },
+                kleingartenverein: {
+                    description: "For the Kleingartenverein An der Eiche e. V., I designed and implemented a website that introduces the association and provides important information about events, available gardens, and contact options. The design was tailored to the association's preferences.",
+                    number: "04"
+                },
+                quiz_app: {
+                    description: "This app allows users to create their own quiz rounds, manage questions, and play quizzes. Questions can be categorized and searched for. I developed the application with AI support.",
+                    number: "05"
                 }
             }
         },
@@ -130,6 +138,14 @@ const translations = {
                 poll_app: {
                     description: "Eine interaktive Umfrage-App, in der Benutzer Umfragen erstellen, Fragen beantworten und Umfragen nach Kategorien durchsuchen können.",
                     number: "03"
+                },
+                kleingartenverein: {
+                    description: "Für den Kleingartenverein An der Eiche e. V. habe ich eine Website gestaltet und umgesetzt. Sie stellt den Verein vor und bündelt wichtige Informationen zu Veranstaltungen, freien Gärten und Kontaktmöglichkeiten. Die Gestaltung habe ich an den Wünschen des Vereins ausgerichtet.",
+                    number: "04"
+                },
+                quiz_app: {
+                    description: "Mit dieser App lassen sich eigene Quizrunden erstellen, Fragen verwalten und Quizrunden spielen. Die Fragen können Kategorien zugeordnet und gezielt durchsucht werden. Ich habe die Anwendung mit KI-Unterstützung entwickelt.",
+                    number: "05"
                 }
             }
         },

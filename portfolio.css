@@ -19,11 +19,11 @@
 }
 
 .hover-image-container {
-    flex: 1;
+   flex: 1;
     position: relative;
-    min-height: 300px;
+    min-height: 600px;
     max-width: 330px;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
 }
 
 .project-title {
@@ -345,6 +345,16 @@
     opacity: 1;
 }
 
+.portfolio-content:has(#quiz_app:hover) #img-quiz_app {
+    opacity: 1;
+}
+
+
+.portfolio-content:has(#kleingartenverein:hover) #img-kleingarten {
+    opacity: 1;
+}
+
+
 .join-hover-img {
     position: relative;
     width: 100%;
@@ -365,7 +375,7 @@
     width: 90%;
     height: auto;
     position: absolute;
-    top: 45%;
+    top: 14%;
     right: -4%;
     border-radius: 12px;
 }
@@ -374,7 +384,7 @@
     position: relative;
     width: 100%;
     height: auto;
-    top: 48%;
+    top: 16%;
     right: 0;
     border-radius: 12px;
 }
@@ -383,8 +393,8 @@
     width: 79%;
     height: auto;
     position: absolute;
-    top: 72%;
-    right: -2%;
+    top: 36%;
+    right: -4%;
     border-radius: 12px;
 }
 
@@ -392,7 +402,43 @@
     position: relative;
     width: 100%;
     height: auto;
-    top: 75%;
+    top: 38%;
+    right: 0;
+    border-radius: 12px;
+}
+
+.background-kleingarten {
+   position: relative;
+    width: 82%;
+    height: auto;
+    top: 55%;
+    right: -70px;
+    border-radius: 12px;
+}
+
+.kleingarten-hover-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 27%;
+    right: 0;
+    border-radius: 12px;
+}
+
+.background-quiz_app {
+ position: relative;
+    width: 81%;
+    height: auto;
+    top: 65%;
+    right: -75px;
+    border-radius: 12px;
+}
+
+.quiz_app-hover-img {
+     position: relative;
+    width: 100%;
+    height: auto;
+    top: 38%;
     right: 0;
     border-radius: 12px;
 }

@@ -2,7 +2,7 @@
 let currentProjectIndex = 0;
 let currentSplideIndex = 0;
 
-const projectOrder = ["join", "el_pollo_loco", "poll_app"];
+const projectOrder = ["join", "el_pollo_loco", "poll_app", "kleingartenverein", "quiz_app"];
 const nextBtn = document.querySelector('.next');
 document.getElementById("next-project").addEventListener("click", nextProject);
 
@@ -39,6 +39,28 @@ const projects = {
             { name: "Supabase", icon: "supabase.svg" },
             { name: "HTML", icon: "html.svg" },
             { name: "Sass", icon: "sass.svg" }
+        ],
+    },
+      kleingartenverein: {
+        image: "./img/Kleingarten Screenshot.png",
+        github: "https://github.com/codeNow26/kgv-an-der-eiche",
+        live: "https://gartenverein.philipp-nowotnick.de/",
+        tech: [
+            { name: "JavaScript", icon: "javascript.svg" },
+            { name: "HTML", icon: "html.svg" },
+            { name: "CSS", icon: "css.svg" }
+        ],
+    },
+      quiz_app: {
+        image: "./img/Quiz Screenshot.png",
+        github: "https://github.com/codeNow26/mistermensch",
+        live: "https://www.nowotnick-quiz.de/",
+        tech: [
+            { name: "React", icon: "react.svg" },
+            { name: "TypeScript", icon: "typescript.svg" },
+            { name: "Supabase", icon: "supabase.svg" },
+            { name: "HTML", icon: "html.svg" },
+            { name: "Tailwind CSS", icon: "tailwindcss.svg" }
         ],
     },
 };
